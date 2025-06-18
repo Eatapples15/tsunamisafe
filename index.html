@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maremoto in Costa Jonica (Basilicata) - Protezione Civile Basilicata</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0056b3; /* Blu scuro */
+            --secondary-color: #007bff; /* Blu più chiaro */
+            --accent-color: #28a745; /* Verde per enfasi */
+            --text-color: #333;
+            --light-bg: #f8f9fa; /* Sfondo chiaro */
+            --white: #ffffff;
+            --border-color: #dee2e6;
+            --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 1.5rem 0;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        header p {
+            margin-top: 0.5rem;
+            font-size: 1.1rem;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+            flex-grow: 1;
+        }
+
+        section {
+            background-color: var(--white);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        h2 {
+            color: var(--secondary-color);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            background-color: var(--light-bg);
+            margin-bottom: 0.7rem;
+            padding: 0.8rem 1.2rem;
+            border-left: 5px solid var(--accent-color);
+            border-radius: 4px;
+            transition: background-color 0.2s ease;
+        }
+
+        ul li:hover {
+            background-color: #e9ecef;
+        }
+
+        .accordion .accordion-item {
+            margin-bottom: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .accordion .accordion-header {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .accordion .accordion-header:hover {
+            background-color: var(--primary-color);
+        }
+
+        .accordion .accordion-header span {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .accordion .accordion-content {
+            padding: 1.5rem;
+            background-color: var(--white);
+            border-top: 1px solid var(--border-color);
+            display: none; /* Hidden by default */
+        }
+
+        .accordion .accordion-content p {
+            margin-bottom: 1rem;
+        }
+
+        .accordion .accordion-item.active .accordion-header span {
+            transform: rotate(90deg);
+        }
+
+        .link-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .link-list a {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .link-list a:hover {
+            background-color: #218838;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 2rem;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .container {
+                margin: 1rem auto;
+                padding: 0 1rem;
+            }
+
+            section {
+                padding: 1.5rem;
+            }
+
+            h2 {
+                font-size: 1.7rem;
+            }
+
+            h3 {
+                font-size: 1.3rem;
+            }
+
+            .accordion .accordion-header {
+                font-size: 1rem;
+                padding: 0.8rem 1rem;
+            }
+
+            .link-list {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            header p {
+                font-size: 0.9rem;
+            }
+            section {
+                padding: 1rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Maremoto in Costa Jonica (Basilicata)</h1>
+            <p>Guida alla Sicurezza della Protezione Civile Regione Basilicata</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <section>
+            <h2>Comprendere il Maremoto</h2>
+            <p>Guarda questo video esplicativo per capire meglio il fenomeno del maremoto e i suoi effetti:</p>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/YOUR_YOUTUBE_VIDEO_ID" allowfullscreen></iframe>
+            </div>
+            <p class="small-text" style="text-align: center; margin-top: 1rem; font-style: italic; color: #666;">
+                *(Sostituisci "YOUR_YOUTUBE_VIDEO_ID" con l'ID di un video YouTube pertinente della Protezione Civile o di enti scientifici affidabili.)*
+            </p>
+        </section>
+
+        <section class="accordion">
+            <h2>Guida: Cosa Fare in Caso di Maremoto</h2>
+            <p>La tua sicurezza è la nostra priorità. Segui queste indicazioni per proteggere te stesso e i tuoi cari.</p>
+
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <h3>Prima del Maremoto</h3>
+                    <span>+</span>
+                </div>
+                <div class="accordion-content">
+                    <ul>
+                        <li><strong>Informati</strong>: Conosci il **Piano di Protezione Civile** del tuo comune e le aree di evacuazione.</li>
+                        <li><strong>Prepara un Kit di Emergenza</strong>: Includi acqua, cibo non deperibile, farmaci, documenti importanti, una radio a batterie, una torcia e un fischietto.</li>
+                        <li><strong>Identifica i Punti di Raccolta</strong>: Individua i percorsi più rapidi e sicuri per raggiungere aree elevate e distanti dalla costa.</li>
+                        <li><strong>Concorda un Punto d'Incontro Familiare</strong>: Decidi un luogo sicuro dove potervi ritrovare in caso di separazione.</li>
+                        <li><strong>Esercitazioni</strong>: Partecipa alle esercitazioni promosse dalla Protezione Civile per acquisire familiarità con le procedure.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <h3>Durante il Maremoto (o dopo un forte terremoto in mare)</h3>
+                    <span>+</span>
+                </div>
+                <div class="accordion-content">
+                    <ul>
+                        <li><strong>Se sei in spiaggia o vicino alla costa e senti un forte terremoto</strong>: Non aspettare l'allarme ufficiale! Allontanati immediatamente dalla costa e dirigiti verso zone più elevate, almeno 10-20 metri sopra il livello del mare, o verso l'interno per almeno 1-2 chilometri.</li>
+                        <li><strong>Se sei in mare in barca</strong>: Non tornare a terra. Dirigiti verso il mare aperto, dove l'onda di maremoto è meno distruttiva.</li>
+                        <li><strong>Ascolta le Autorità</strong>: Segui le indicazioni della Protezione Civile e delle forze dell'ordine tramite radio, TV o altoparlanti.</li>
+                        <li><strong>Non Tornare Indietro</strong>: Anche se la prima onda sembra piccola, le successive potrebbero essere più grandi e pericolose. Le onde di maremoto possono durare ore.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <h3>Dopo il Maremoto</h3>
+                    <span>+</span>
+                </div>
+                <div class="accordion-content">
+                    <ul>
+                        <li><strong>Non Rientrare nelle Zone Costiere</strong>: Attendi il via libera dalle autorità prima di rientrare nelle aree a rischio.</li>
+                        <li><strong>Verifica la Tua Incolumità e Quella degli Altri</strong>: Presta soccorso se sei in grado di farlo, ma senza esporti a rischi.</li>
+                        <li><strong>Controlla la Casa</strong>: Verifica la presenza di danni strutturali, fughe di gas o corto circuiti prima di rientrare.</li>
+                        <li><strong>Informa le Autorità</strong>: Segnala eventuali persone disperse o situazioni di pericolo.</li>
+                        <li><strong>Evita l'Uso del Telefono</strong>: Usa il telefono solo per vere emergenze, per non sovraccaricare le linee.</li>
+                        <li><strong>Collabora</strong>: Segui le istruzioni delle squadre di soccorso e degli operatori della Protezione Civile.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Link Utili</h2>
+            <p style="text-align: center;">Per maggiori informazioni e aggiornamenti, consulta i seguenti siti:</p>
+            <div class="link-list">
+                <a href="https://www.protezionecivile.basilicata.it/" target="_blank">Protezione Civile Regione Basilicata</a>
+                <a href="https://www.protezionecivile.gov.it/" target="_blank">Dipartimento della Protezione Civile Nazionale</a>
+                <a href="https://www.ingv.it/" target="_blank">Istituto Nazionale di Geofisica e Vulcanologia (INGV)</a>
+            </div>
+            <p style="text-align: center; margin-top: 2rem; font-weight: bold; color: var(--primary-color);">
+                Ricorda: la conoscenza e la prevenzione sono le migliori armi contro il rischio maremoto. Condividi queste informazioni con la tua famiglia e i tuoi amici.
+            </p>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Protezione Civile Regione Basilicata. Tutti i diritti riservati.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    const accordionItem = this.parentNode;
+                    const accordionContent = this.nextElementSibling;
+
+                    // Close all other open accordion items
+                    document.querySelectorAll('.accordion-item.active').forEach(item => {
+                        if (item !== accordionItem) {
+                            item.classList.remove('active');
+                            item.querySelector('.accordion-content').style.display = 'none';
+                        }
+                    });
+
+                    // Toggle current accordion item
+                    accordionItem.classList.toggle('active');
+                    if (accordionContent.style.display === 'block') {
+                        accordionContent.style.display = 'none';
+                    } else {
+                        accordionContent.style.display = 'block';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
