@@ -200,6 +200,50 @@
             box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
         }
 
+        /* --- GALLERY STYLES --- */
+        .video-gallery-wrapper {
+            overflow-x: auto; /* Abilita lo scroll orizzontale */
+            -webkit-overflow-scrolling: touch; /* Migliora lo scroll su iOS */
+            padding-bottom: 15px; /* Spazio per la scrollbar */
+            scroll-snap-type: x mandatory; /* Snap ai video */
+            scrollbar-width: thin; /* Firefox */
+            scrollbar-color: var(--secondary-color) var(--light-bg); /* Firefox */
+        }
+
+        .video-gallery {
+            display: flex; /* Metti i video in riga */
+            gap: 1.5rem; /* Spazio tra i video */
+            padding: 1rem 0;
+            min-width: fit-content; /* Permette lo scroll se i contenuti sono troppi */
+        }
+
+        .video-gallery-item {
+            flex: 0 0 45%; /* Dimensione fissa per 2 video su desktop */
+            min-width: 300px; /* Larghezza minima per evitare video troppo stretti */
+            max-width: 450px; /* Larghezza massima */
+            scroll-snap-align: start; /* Allinea l'inizio del video allo snap point */
+            background-color: var(--light-bg);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            flex-shrink: 0; /* Impedisce ai video di rimpicciolirsi */
+        }
+
+        .video-gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .video-gallery-item .video-title {
+            padding: 0.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            background-color: var(--white);
+            text-align: center;
+            font-size: 1.1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             header h1 {
@@ -231,6 +275,16 @@
             .link-list {
                 flex-direction: column;
                 align-items: center;
+            }
+
+            /* Gallery responsive adjustments */
+            .video-gallery-item {
+                flex: 0 0 90%; /* Un video per riga su schermi piccoli */
+                min-width: unset; /* Rimuove il min-width per schermi piccoli */
+                max-width: unset;
+            }
+            .video-gallery-wrapper {
+                padding-bottom: 10px; /* Ridotto spazio scrollbar */
             }
         }
 
@@ -284,11 +338,44 @@
             <h2>Comprendere il Maremoto</h2>
             <p>Guarda questo video esplicativo per capire meglio il fenomeno del maremoto e i suoi effetti:</p>
             <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/YOUR_YOUTUBE_VIDEO_ID" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/YOUR_MAIN_YOUTUBE_VIDEO_ID" allowfullscreen></iframe>
             </div>
             <p class="small-text" style="text-align: center; margin-top: 1rem; font-style: italic; color: #666;">
-                *(Sostituisci "YOUR_YOUTUBE_VIDEO_ID" con l'ID di un video YouTube pertinente della Protezione Civile o di enti scientifici affidabili.)*
+                *(Sostituisci "YOUR_MAIN_YOUTUBE_VIDEO_ID" con l'ID di un video YouTube pertinente della Protezione Civile o di enti scientifici affidabili.)*
             </p>
+        </section>
+
+        <section>
+            <h2>Galleria Video Informativi</h2>
+            <p>Esplora altri video utili per approfondire la tua conoscenza sul rischio maremoto e le misure di sicurezza.</p>
+            <div class="video-gallery-wrapper">
+                <div class="video-gallery">
+                    <div class="video-gallery-item">
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/2" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-title">Video Informativo 1</div>
+                    </div>
+                    <div class="video-gallery-item">
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/3" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-title">Video di Approfondimento 2</div>
+                    </div>
+                    <div class="video-gallery-item">
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/4" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-title">Cosa Fare - Sim. 3</div>
+                    </div>
+                    <div class="video-gallery-item">
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/5" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-title">Video di Prevenzione 4</div>
+                    </div>
+                    </div>
+            </div>
         </section>
 
         <section class="accordion">
@@ -322,6 +409,7 @@
                         <li><strong>Se sei in mare in barca</strong>: Non tornare a terra. Dirigiti verso il mare aperto, dove l'onda di maremoto è meno distruttiva.</li>
                         <li><strong>Ascolta le Autorità</strong>: Segui le indicazioni della Protezione Civile e delle forze dell'ordine tramite radio, TV o altoparlanti.</li>
                         <li><strong>Non Tornare Indietro</strong>: Anche se la prima onda sembra piccola, le successive potrebbero essere più grandi e pericolose. Le onde di maremoto possono durare ore.</li>
+                        <li><strong>Mantieni la calma</strong>.</li>
                     </ul>
                 </div>
             </div>
@@ -360,7 +448,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 Protezione Civile Regione Basilicata. Tutti i diritti riservati.</p>
+            <p>© 2024 Protezione Civile Regione Basilicata. Tutti i diritti riservati.</p>
         </div>
     </footer>
 
