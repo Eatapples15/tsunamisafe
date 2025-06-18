@@ -35,6 +35,7 @@
             color: var(--white);
             padding: 1.5rem 0;
             text-align: center;
+            box-shadow: var(--shadow);
             display: flex; /* Utilizza flexbox per allineare logo e testo */
             flex-direction: column; /* Impila gli elementi verticalmente */
             align-items: center; /* Centra orizzontalmente gli elementi */
@@ -177,6 +178,73 @@
             transform: rotate(90deg);
         }
 
+        /* Stili specifici per la nuova sezione "Cosa sapere" */
+        .info-section {
+            background-color: var(--white);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        .info-section .info-header {
+            background-color: var(--primary-color); /* Colore primario per l'header della sezione info */
+            color: var(--white);
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.3rem; /* Dimensione del testo leggermente più grande */
+            border-radius: 8px 8px 0 0; /* Bordi arrotondati solo in alto */
+            transition: background-color 0.3s ease;
+        }
+
+        .info-section .info-header:hover {
+            background-color: var(--secondary-color); /* Cambia colore al passaggio del mouse */
+        }
+
+        .info-section .info-header span {
+            font-size: 1.8rem; /* Icona leggermente più grande */
+            transition: transform 0.3s ease;
+        }
+
+        .info-section .info-content {
+            padding: 1.5rem;
+            background-color: var(--white);
+            border: 1px solid var(--border-color);
+            border-top: none; /* Rimuovi il bordo superiore se l'header ha bordi arrotondati */
+            border-radius: 0 0 8px 8px; /* Bordi arrotondati solo in basso */
+            display: none; /* Nascosto di default */
+        }
+
+        .info-section.active .info-header span {
+            transform: rotate(90deg); /* Ruota l'icona quando la sezione è attiva */
+        }
+
+        .info-section .question {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .info-section p + .question { /* Spazio sopra le domande se precedute da un paragrafo */
+            margin-top: 2rem;
+        }
+
+        .list-unstyled {
+            list-style: none;
+            padding-left: 0;
+        }
+        .list-unstyled li {
+            background-color: transparent; /* Rimuovi sfondo e bordo per i li in questa lista */
+            border-left: none;
+            padding: 0;
+            margin-bottom: 0.5rem;
+        }
+
+
         .link-list {
             display: flex;
             flex-wrap: wrap;
@@ -277,7 +345,7 @@
                 font-size: 1.3rem;
             }
 
-            .accordion .accordion-header {
+            .accordion .accordion-header, .info-section .info-header {
                 font-size: 1rem;
                 padding: 0.8rem 1rem;
             }
@@ -348,14 +416,55 @@
         </div>
     </header>
 
-    ---
-
     <div class="container">
         <section>
             <h2>Comprendere il Maremoto</h2>
             <p>Guarda questo video fondamentale per capire meglio il fenomeno del maremoto e le basi della sicurezza.</p>
             <div class="video-container">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/HsXXiONDcLs?si=wjAthZSTcFIkIaW3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        ---
+
+        <section class="info-section">
+            <div class="info-header">
+                <h2>Cosa sapere sul Maremoto</h2>
+                <span>+</span>
+            </div>
+            <div class="info-content">
+                <p>Il **maremoto**, in giapponese **tsunami**, è costituito da una serie di onde marine prodotte dal rapido spostamento di una grande massa d’acqua.</p>
+                <p>In mare aperto le onde si propagano molto velocemente percorrendo grandi distanze, con altezze quasi impercettibili, ma con lunghezze d’onda (distanza tra un’onda e la successiva) che possono raggiungere alcune decine di chilometri.</p>
+                <p>Avvicinandosi alla costa, la velocità dell’onda diminuisce mentre la sua altezza aumenta rapidamente, anche di decine di metri. La prima onda può non essere la più grande e tra l’arrivo di un’onda e la successiva possono passare diversi minuti.</p>
+
+                <p class="question">Quali sono le cause?</p>
+                <p>I maremoti sono generati principalmente da **terremoti sottomarini** con una magnitudo elevata (di solito superiore a 6.5-7.0), che provocano un improvviso spostamento verticale del fondale marino. Altre cause meno comuni includono eruzioni vulcaniche sottomarine, frane costiere o sottomarine, e raramente impatti di meteoriti.</p>
+
+                <p class="question">L'Italia è a rischio maremoto?</p>
+                <p>Sì, **l'Italia è un paese a rischio maremoto**, in particolare le coste del Sud Italia e della Sicilia a causa della complessa interazione tra le placche tettoniche nel Mediterraneo, con eventi storici significativi nel passato (ad esempio, il maremoto di Messina del 1908). La presenza di faglie attive e vulcani sottomarini rende lo scenario di rischio tutt'altro che trascurabile.</p>
+
+                <p class="question">Che cosa succede sulle coste?</p>
+                <p>Quando le onde di maremoto raggiungono la costa, la profondità del fondale diminuisce e l'energia dell'onda si concentra, causando un **rapido aumento della sua altezza**. Questo può manifestarsi con un improvviso e anomalo ritiro del mare, seguito da una o più onde gigantesche che si abbattono sulla terraferma con forza distruttiva, o un rapido innalzamento del livello del mare. Le onde possono penetrare per centinaia di metri o anche chilometri nell'entroterra, trasportando detriti e distruggendo edifici e infrastrutture.</p>
+
+                <p class="question">Quando avverrà il prossimo maremoto?</p>
+                <p>Non è possibile prevedere con esattezza quando avverrà il prossimo maremoto. Tuttavia, la ricerca scientifica e il monitoraggio costante delle aree sismicamente attive ci permettono di comprendere meglio il rischio e di implementare sistemi di allertamento per mitigare gli impatti.</p>
+
+                <p class="question">In Italia esiste un sistema di allertamento?</p>
+                <p>Sì, in Italia è operativo il **Sistema di Allertamento Maremoti (SiAM)**, gestito dal Dipartimento della Protezione Civile in collaborazione con l'INGV (Istituto Nazionale di Geofisica e Vulcanologia) e ISPRA (Istituto Superiore per la Protezione e la Ricerca Ambientale). Il SiAM monitora costantemente l'attività sismica e i livelli del mare per rilevare potenziali maremoti e diramare allerte alle autorità competenti e alla popolazione.</p>
+
+                <h3>Cosa sapere fin da subito</h3>
+                <p>In un mare poco ampio come il Mediterraneo i tempi di arrivo delle onde sono **molto brevi**. Le autorità potrebbero non avere il tempo per diramare un’allerta.</p>
+                <p>Quindi è ancora più importante imparare a riconoscere i fenomeni che possono segnalare l’arrivo di un maremoto:</p>
+                <ul class="list-unstyled">
+                    <li>- un **forte terremoto** che hai percepito o di cui hai avuto notizia;</li>
+                    <li>- un **rumore cupo e crescente** che proviene dal mare, come quello di un treno o di un aereo a bassa quota;</li>
+                    <li>- un **improvviso e insolito ritiro del mare**, un rapido innalzamento del livello del mare o una grande onda estesa su tutto l’orizzonte.</li>
+                </ul>
+                <p>Ricorda che le case e gli edifici vicini alla costa non sempre sono sicuri:</p>
+                <ul class="list-unstyled">
+                    <li>- la sicurezza di un edificio dipende da molti fattori, per esempio la tipologia e la qualità dei materiali utilizzati nella costruzione, la quota a cui si trova, la distanza dalla riva, il numero di piani, l’esposizione più o meno diretta all’impatto dell’onda;</li>
+                    <li>- generalmente i piani alti di un edificio in cemento armato, se l’edificio è ben costruito, possono offrire una protezione adeguata.</li>
+                </ul>
             </div>
         </section>
 
@@ -474,6 +583,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Funzionalità per la sezione "Guida: Cosa Fare"
             const accordionHeaders = document.querySelectorAll('.accordion-header');
 
             accordionHeaders.forEach(header => {
@@ -481,7 +591,7 @@
                     const accordionItem = this.parentNode;
                     const accordionContent = this.nextElementSibling;
 
-                    // Close all other open accordion items
+                    // Chiudi tutti gli altri elementi dell'accordion aperti, tranne quello cliccato
                     document.querySelectorAll('.accordion-item.active').forEach(item => {
                         if (item !== accordionItem) {
                             item.classList.remove('active');
@@ -489,7 +599,7 @@
                         }
                     });
 
-                    // Toggle current accordion item
+                    // Apri o chiudi l'elemento corrente
                     accordionItem.classList.toggle('active');
                     if (accordionContent.style.display === 'block') {
                         accordionContent.style.display = 'none';
@@ -497,6 +607,20 @@
                         accordionContent.style.display = 'block';
                     }
                 });
+            });
+
+            // Nuova funzionalità per la sezione "Cosa Sapere"
+            const infoSectionHeader = document.querySelector('.info-section .info-header');
+            const infoSectionContent = document.querySelector('.info-section .info-content');
+            const infoSection = document.querySelector('.info-section');
+
+            infoSectionHeader.addEventListener('click', function() {
+                infoSection.classList.toggle('active');
+                if (infoSectionContent.style.display === 'block') {
+                    infoSectionContent.style.display = 'none';
+                } else {
+                    infoSectionContent.style.display = 'block';
+                }
             });
         });
     </script>
