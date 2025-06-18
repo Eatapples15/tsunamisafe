@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maremoto in Costa Jonica (Basilicata) - Protezione Civile Basilicata</title>
+    <title>Rischio Maremoto in Costa Jonica - Protezione Civile Basilicata</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -35,6 +35,17 @@
             padding: 1.5rem 0;
             text-align: center;
             box-shadow: var(--shadow);
+            display: flex; /* Utilizza flexbox per allineare logo e testo */
+            flex-direction: column; /* Impila gli elementi verticalmente */
+            align-items: center; /* Centra orizzontalmente gli elementi */
+            justify-content: center; /* Centra verticalmente gli elementi */
+        }
+
+        header img {
+            max-width: 120px; /* Dimensione massima del logo */
+            height: auto; /* Mantieni le proporzioni */
+            margin-bottom: 1rem; /* Spazio sotto il logo */
+            animation: fadeIn 1s ease-out; /* Animazione per il logo */
         }
 
         header h1 {
@@ -300,6 +311,10 @@
             h2 {
                 font-size: 1.5rem;
             }
+
+            header img {
+                max-width: 100px; /* Logo leggermente più piccolo su mobile */
+            }
         }
 
         /* Animations */
@@ -327,10 +342,13 @@
 <body>
     <header>
         <div class="container">
+            **<img src="logo.png" alt="Logo Protezione Civile Basilicata">**
             <h1>Maremoto in Costa Jonica (Basilicata)</h1>
             <p>Guida alla Sicurezza della Protezione Civile Regione Basilicata</p>
         </div>
     </header>
+
+    ---
 
     <div class="container">
         <section>
