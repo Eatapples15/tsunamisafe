@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portale Operativo - Rischio Maremoto Costa Jonica</title>
+    <style>
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #e9ecef;
+            --danger-color: #dc3545;
+            --warning-color: #ffc107;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            font-family: var(--font-family);
+            line-height: 1.6;
+            margin: 0;
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            overflow: hidden;
+            padding: 0 20px;
+        }
+        header {
+            background: var(--primary-color);
+            color: #ffffff;
+            padding: 1rem 0;
+            text-align: center;
+            border-bottom: 5px solid var(--warning-color);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        header p {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+        nav.tabs {
+            display: flex;
+            background: #ffffff;
+            border-bottom: 1px solid #dee2e6;
+            flex-wrap: wrap;
+        }
+        .tab-link {
+            padding: 15px 20px;
+            cursor: pointer;
+            border: none;
+            background: #ffffff;
+            font-size: 1rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            transition: background-color 0.3s ease;
+            flex-grow: 1;
+            text-align: center;
+        }
+        .tab-link:hover {
+            background-color: var(--secondary-color);
+        }
+        .tab-link.active {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            border-bottom: 3px solid var(--warning-color);
+        }
+        .tab-content {
+            display: none;
+            padding: 20px;
+            background: #ffffff;
+            border: 1px solid #dee2e6;
+            border-top: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .alert-section {
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .alert-orange {
+            border: 2px solid var(--warning-color);
+            background-color: #fff8e1;
+        }
+        .alert-red {
+            border: 2px solid var(--danger-color);
+            background-color: #fbe9e7;
+        }
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: var(--dark-color);
+            margin-top: 1.5rem;
+        }
+        h4.alert-title-orange {
+            color: #e65100;
+            font-size: 1.8rem;
+        }
+        h4.alert-title-red {
+            color: var(--danger-color);
+            font-size: 1.8rem;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+        th {
+            background-color: var(--secondary-color);
+            font-weight: bold;
+        }
+        .procedure-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .procedure-list li {
+            background: #ffffff;
+            border-left: 5px solid var(--primary-color);
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 3px;
+        }
+        .procedure-list li::before {
+            content: "➔";
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: var(--light-color);
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        .card h3 {
+            margin-top: 0;
+        }
+        .note {
+            background-color: #e7f3fe;
+            border-left: 6px solid #2196F3;
+            padding: 15px;
+            margin-top: 15px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+            background-color: var(--dark-color);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>Portale Operativo Protezione Civile</h1>
+            <p>Rischio Maremoto - Costa Jonica Materana</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <nav class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'Generale')">Info Generali</button>
+            <button class="tab-link" onclick="openTab(event, 'NS-Rotondella')">Nova Siri - Rotondella</button>
+            <button class="tab-link" onclick="openTab(event, 'Policoro')">Policoro</button>
+            <button class="tab-link" onclick="openTab(event, 'Scanzano')">Scanzano Jonico</button>
+            <button class="tab-link" onclick="openTab(event, 'Pisticci')">Pisticci</button>
+            <button class="tab-link" onclick="openTab(event, 'Bernalda')">Bernalda</button>
+        </nav>
+
+        <div id="Generale" class="tab-content active">
+            <h2>Procedure Generali e Livelli di Allerta</h2>
+            [cite_start]<p>Questo portale riassume le procedure operative e i modelli di intervento da attuare in caso di allarme maremoto per i comuni della costa Jonica: Nova Siri, Rotondella, Policoro, Scanzano Jonico, Pisticci e Bernalda[cite: 28].</p>
+
+            <div class="grid-container">
+                <div class="card alert-orange">
+                    <h3>LIVELLO 1: Allerta Arancione (Advisory)</h3>
+                    <p><strong>Condizione:</strong> Altezza d'onda (Run-up) <strong>&lt; [cite_start]1 metro</strong>[cite: 62].</p>
+                    [cite_start]<p><strong>Inondazione:</strong> Ingressione media a terra di <strong>400 metri</strong>, con picchi di 900 metri in prossimità delle foci dei fiumi[cite: 80].</p>
+                    [cite_start]<p><strong>Superficie Totale Vulnerabile:</strong> ~15 km²[cite: 80].</p>
+                </div>
+                <div class="card alert-red">
+                    <h3>LIVELLO 2: Allerta Rossa (Watch)</h3>
+                    [cite_start]<p><strong>Condizione:</strong> Altezza d'onda (Run-up) compresa <strong>tra 1 e 10 metri</strong>[cite: 62].</p>
+                    [cite_start]<p><strong>Inondazione:</strong> Ingressione media a terra di <strong>2.00 km</strong>, con picchi di 4.00 km in prossimità delle foci dei fiumi[cite: 126].</p>
+                    [cite_start]<p><strong>Superficie Totale Vulnerabile:</strong> ~78 km²[cite: 126].</p>
+                </div>
+            </div>
+
+            <h2>Procedure di Allertamento della Popolazione</h2>
+            [cite_start]<p>Per l'allertamento della popolazione interessata, si devono utilizzare simultaneamente i seguenti sistemi[cite: 183]:</p>
+            <ul class="procedure-list">
+                [cite_start]<li><strong>Sirene fisse e mobili:</strong> Utilizzo di altoparlanti su mezzi di servizio e sirene fisse nelle aree antropizzate[cite: 184, 185].</li>
+                [cite_start]<li><strong>Dispositivi su veicoli di emergenza:</strong> Allarmi acustici e visivi sui mezzi delle Forze di Polizia, VV.FF., Polizia Locale e Volontariato[cite: 188].</li>
+                [cite_start]<li><strong>Messaggi vocali:</strong> Tramite microfoni su mezzi di servizio e impianti di diffusione sonora presso gli stabilimenti balneari[cite: 190, 192].</li>
+                [cite_start]<li><strong>IT-Alert:</strong> Sistema di allarme pubblico nazionale tramite cell-broadcast (sperimentazione prevista per il 12 Febbraio 2025)[cite: 186].</li>
+                [cite_start]<li><strong>Canali Digitali:</strong> Banner sui siti istituzionali dei Comuni, diffusione su social network e canali di messaggistica (WhatsApp, Telegram)[cite: 187, 193, 194].</li>
+            </ul>
+
+            <h2>Modello d'Intervento Generale</h2>
+            [cite_start]<p>Il modello d'intervento è unico per entrambi i livelli di allerta e prevede due azioni fondamentali[cite: 196, 199]:</p>
+            <ol>
+                <li><strong>Allontanamento della Popolazione:</strong> Evacuazione rapida dalle zone di allertamento verso le Aree di Attesa designate.</li>
+                <li><strong>Gestione dell'Emergenza:</strong> Attivazione dei Cancelli per il controllo degli accessi, allestimento delle Aree di Ammassamento Soccorritori e coordinamento delle operazioni dal C.O.C. (Centro Operativo Comunale).</li>
+            </ol>
+        </div>
+
+        <div id="NS-Rotondella" class="tab-content">
+            <h2>Modello d'Intervento Intercomunale: Nova Siri e Rotondella</h2>
+            [cite_start]<p>Mappa di riferimento: Pagina 13, Documento "Relazione di sintesi"[cite: 244].</p>
+
+            <div class="alert-section alert-orange">
+                <h4 class="alert-title-orange">Allerta Arancione (Advisory)</h4>
+                <h3>Aree di Protezione Civile</h3>
+                <table>
+                    <thead>
+                        <tr><th>Tipologia</th><th>Nome / Ubicazione</th></tr>
+                    </thead>
+                    <tbody>
+                        [cite_start]<tr><td>Vie di Allontanamento</td><td>2 percorsi principali [cite: 331]</td></tr>
+                        [cite_start]<tr><td>Area di Attesa 1</td><td>Strada comunale Via Heraclea [cite: 329]</td></tr>
+                        [cite_start]<tr><td>Area di Attesa 2</td><td>Strada comunale Via Magna Grecia [cite: 329]</td></tr>
+                        [cite_start]<tr><td>Area Ammassamento Soccorritori</td><td>Area di servizio in Via Magna Grecia [cite: 329]</td></tr>
+                        <tr><td>C.O.C.</td><td>Comando P.L. - [cite_start]Piazza Papa Giovanni XXIII [cite: 329]</td></tr>
+                    </tbody>
+                </table>
+                [cite_start]<h3>Cancelli da Attivare (N. 3) [cite: 426]</h3>
+                 <table>
+                    <thead>
+                        <tr><th>N°</th><th>Ubicazione</th><th>Tipologia</th><th>Coordinate (WGS84)</th></tr>
+                    </thead>
+                    <tbody>
+                        [cite_start]<tr><td>1</td><td>VIA IDROVORA (S.P. 107 LACCATA) [cite: 393][cite_start]</td><td>Provinciale</td><td>40°08'47.07" N - 16°38'26.07" E [cite: 402]</td></tr>
+                        [cite_start]<tr><td>2</td><td>VIA TRIESTE INCROCIO VIALE DELLA LIBERTA' [cite: 396][cite_start]</td><td>Comunale</td><td>40°07'58.04" N - 16°38'30.66" E [cite: 403]</td></tr>
+                        [cite_start]<tr><td>3</td><td>VIA SIRIS (S.P. 104) INCROCIO VIA A. DE GASPERI [cite: 399][cite_start]</td><td>Provinciale</td><td>40°07'45.59" N - 16°38'33.70" E [cite: 404]</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="alert-section alert-red">
+                <h4 class="alert-title-red">Allerta Rossa (Watch)</h4>
+                 <h3>Aree di Protezione Civile</h3>
+                <table>
+                    <thead>
+                        <tr><th>Tipologia</th><th>Nome / Ubicazione</th></tr>
+                    </thead>
+                    <tbody>
+                        [cite_start]<tr><td>Vie di Allontanamento</td><td>4 percorsi principali [cite: 383]</td></tr>
+                        [cite_start]<tr><td>Area di Attesa 1</td><td>Strada comunale Via Heraclea [cite: 366]</td></tr>
+                        [cite_start]<tr><td>Area di Attesa 2</td><td>Strada comunale Via Magna Grecia [cite: 366]</td></tr>
+                        [cite_start]<tr><td>Area Ammassamento Soccorritori</td><td>Area di servizio in Via Magna Grecia [cite: 366]</td></tr>
+                        [cite_start]<tr><td>C.O.C.</td><td>Scuola pubblica (Liceo) - Via Vittorio Bachelet [cite: 366]</td></tr>
+                    </tbody>
+                </table>
+                [cite_start]<h3>Cancelli da Attivare (N. 7) [cite: 425]</h3>
+                <p>Si attivano tutti i cancelli da 1 a 7.</p>
+                 <table>
+                    <thead>
+                        <tr><th>N°</th><th>Ubicazione</th><th>Tipologia</th><th>Coordinate (WGS84)</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1-3</td><td colspan="3">Vedi cancelli Allerta Arancione</td></tr>
+                        [cite_start]<tr><td>4</td><td>VIA GRAMSCI INCROCIO VIA MAGNA GRECIA [cite: 407][cite_start]</td><td>Comunale</td><td>40°07'29.32" N - 16°38'12.50" E [cite: 409]</td></tr>
+                        [cite_start]<tr><td>5</td><td>VIA MAGNA GRECIA INCROCIO VIA GRAMSCI [cite: 412][cite_start]</td><td>Comunale</td><td>40°07'31.83" N - 16°38'06.30" E [cite: 414]</td></tr>
+                        <tr><td>6</td><td>S.P. [cite_start]104 INCROCIO VIA TRATTURO REGIO [cite: 417][cite_start]</td><td>Provinciale</td><td>40°08'09.13" N - 16°38'06.30" E [cite: 419]</td></tr>
+                        [cite_start]<tr><td>7</td><td>VIA TRATTURO REGIO INCROCIO VIA HERACLEA [cite: 422][cite_start]</td><td>Comunale</td><td>40°08'21.41" N - 16°37'59.43" E [cite: 424]</td></tr>
+                    </tbody>
+                </table>
+            </div>
+             <div class="note">
+                <strong>Nota Bene:</strong> La via di allontanamento n. [cite_start]2 (Via Amarcord...) prevede il transito di un passaggio a livello[cite: 332].
+            </div>
+        </div>
+
+        <div id="Policoro" class="tab-content">
+            <h2>Modello d'Intervento Comunale: Policoro</h2>
+            [cite_start]<p>Mappa di riferimento: Pagina 18, Documento "Relazione di sintesi"[cite: 434].</p>
+
+            <div class="alert-section alert-orange">
+                <h4 class="alert-title-orange">Allerta Arancione (Advisory)</h4>
+                 <h3>Aree di Protezione Civile</h3>
+                <table>
+                    <thead>
+                        <tr><th>Tipologia</th><th>Nome / Ubicazione</th></tr>
+                    </thead>
+                    <tbody>
+                        [cite_start]<tr><td>Vie di Allontanamento</td><td>5 percorsi principali [cite: 493]</td></tr>
+                        <tr><td>Area di Attesa 1</td><td>Parc. [cite_start]Polifunzionale "Palaercole" - Via Umbria [cite: 506]</td></tr>
+                        [cite_start]<tr><td>Area di Attesa 2</td><td>Campo sportivo "R. Periello" - Via San Gottardo [cite: 506]</td></tr>
+                        [cite_start]<tr><td>Area Ammassamento Soccorritori</td><td>Piazza A. Moro [cite: 506]</td></tr>
+                        <tr><td>C.O.C. [cite_start]/ C.O.M.</td><td>Edificio comunale / "Palaercole" [cite: 506]</td></tr>
+                    </tbody>
+                </table>
+                [cite_start]<h3>Cancelli da Attivare (N. 5) [cite: 534]</h3>
+                <table>
+                     <thead>
+                        <tr><th>N°</th><th>Ubicazione</th><th>Tipologia</th><th>Coordinate (WGS84)</th></tr>
+                    </thead>
+                    <tbody>
+                        [cite_start]<tr><td>1</td><td>VIA SAN GIUSTO INCROCIO VIA PIAVE [cite: 532][cite_start]</td><td>Comunale</td><td>40°12'29.10" N 16°43'02.84" E [cite: 532]</td></tr>
+                        [cite_start]<tr><td>2</td><td>VIA CATONE INCROCIO VIA FIUME [cite: 532][cite_start]</td><td>Comunale</td><td>40°12'00.07" N 16°42'15.96" E [cite: 532]</td></tr>
+                        [cite_start]<tr><td>3</td><td>VIA LIDO (S.P. 91) INCROCIO VIA TRIESTE - VIA FIUME [cite: 532][cite_start]</td><td>Provinciale</td><td>40°11'49.84" N 16°42'01.45" E [cite: 532]</td></tr>
+                        [cite_start]<tr><td>4</td><td>VIA OBERDAN INCROCIO VIA TRIESTE [cite: 532][cite_start]</td><td>Comunale</td><td>40°11'37.01" N 16°41'42.67" E [cite: 532]</td></tr>
+                        [cite_start]<tr><td>5</td><td>VIA MASCAGNI (S.P. 67) INCROCIO VIA TRIESTE [cite: 532][cite_start]</td><td>Provinciale</td><td>40°10'43.23" N 16°41'08.73" E [cite: 532]</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="alert-section alert-red">
+                <h4 class="alert-title-red">Allerta Rossa (Watch)</h4>
+                 <h3>Aree di Protezione Civile</h3>
+                <table>
+                    <thead>
+                        <tr><th>Tipologia</th><th>Nome / Ubicazione</th></tr>
+                    </thead>
+                    <tbody>
+                        [cite_start]<tr><td>Vie di Allontanamento</td><td>6 percorsi principali [cite: 525]</td></tr>
+                        [cite_start]<tr><td>Area di Attesa 1 & 2</td><td>Come Allerta Arancione [cite: 526]</td></tr>
+                        [cite_start]<tr><td>Area di Attesa 3</td><td>Parc. ex Zuccherificio - Via Lido [cite: 526]</td></tr>
+                        [cite_start]<tr><td>Area Ammassamento e C.O.C.</td><td>Come Allerta Arancione [cite: 526]</td></tr>
+                    </tbody>
+                </table>
+                [cite_start]<h3>Cancelli da Attivare (N. 13) [cite: 533]</h3>
+                <p>Si attivano tutti i cancelli da 1 a 13.</p>
+                <table>
+                     <thead>
+                        <tr><th>N°</th><th>Ubicazione</th><th>Tipologia</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1-5</td><td colspan="2">Vedi cancelli Allerta Arancione</td></tr>
+                        <tr><td>6</td><td>SVINCOLO S.S. 106 / S.S. 653</td><td>Comunale</td></tr>
+                        <tr><td>7</td><td>VIA BRINDISI INCROCIO ZONA ARTIGIANALE</td><td>Comunale</td></tr>
+                        <tr><td>8</td><td>VIA FOGGIA INCROCIO COMPL. S.S. 106</td><td>Comunale</td></tr>
+                        <tr><td>9</td><td>VIA MASCAGNI (S.P. 67) INCROCIO COMPL. S.S. 106</td><td>Provinciale</td></tr>
+                        <tr><td>10</td><td>VIA SICILIA INCROCIO SOPRAPASSO S.S. 106</td><td>Comunale</td></tr>
+                        <tr><td>11</td><td>VIA OBERDAN INCROCIO VIA BELLINI</td><td>Comunale</td></tr>
+                        <tr><td>12</td><td>VIA LIDO (S.P. 91) INCROCIO VIA BELLINI</td><td>Provinciale</td></tr>
+                        <tr><td>13</td><td>VIA SAN GIUSTO A VALLE SOTTOPASSO S.S. 106</td><td>Comunale</td></tr>
+                    </tbody>
+                </table>
+                 <div class="note">
+                    <strong>Nota Bene:</strong> Le vie di allontanamento n. [cite_start]1, 2 e 3 prevedono il transito di un passaggio a livello, di sottopassi della S.S. 106 e il passaggio davanti al Pronto Soccorso dell'Ospedale[cite: 517, 527].
+                </div>
+            </div>
+        </div>
+        
+        <div id="Scanzano" class="tab-content">
+            <h2>Modello d'Intervento Comunale: Scanzano Jonico</h2>
+            [cite_start]<p>Mappa di riferimento: Pagina 23, Documento "Relazione di sintesi"[cite: 543].</p>
+        
+            <div class="alert-section alert-orange">
+                <h4 class="alert-title-orange">Allerta Arancione (Advisory)</h4>
+                <h3>Aree di Protezione Civile</h3>
+                <table>
+                    <thead>
+                        <tr><th>Tipologia</th><th>Nome / Ubicazione</th></tr>
+                    </thead>
+                    <tbody>
+                        [cite_start]<tr><td>Vie di Allontanamento</td><td>4 percorsi principali [cite: 617]</td></tr>
+                        [cite_start]<tr><td>Area di Attesa 1</td><td>Campo Sportivo Comunale - Via S. D'Acquisto [cite: 620]</td></tr>
+                        <tr><td>Area di Attesa 2</td><td>Piazza Libertà - Loc. [cite_start]Terzo Cavone [cite: 620]</td></tr>
+                        [cite_start]<tr><td>Area Ammassamento Soccorritori</td><td>Parcheggio Campo Sportivo [cite: 620]</td></tr>
+                        [cite_start]<tr><td>C.O.C.</td><td>Palazzo Baronale - P.zza A. Gramsci [cite: 620]</td></tr>
+                    </tbody>
+                </table>
+                [cite_start]<h3>Cancelli da Attivare (N. 4) [cite: 654]</h3>
+                <table>
+                    <thead>
+                        <tr><th>N°</th><th>Ubicazione</th><th>Tipologia</th><th>Coordinate (WGS84)</th></tr>
+                    </thead>
+                    <tbody>
+                        [cite_start]<tr><td>1</td><td>VIA MONVISO (S.P. 60) INCROCIO VIA VESUVIO [cite: 642][cite_start]</td><td>Provinciale</td><td>40°14'8.53"N 16°43'2.81"E [cite: 642]</td></tr>
+                        [cite_start]<tr><td>2</td><td>VIA MARE (S.P. 59) INCROCIO VIA ASPROMONTE [cite: 642][cite_start]</td><td>Provinciale</td><td>40°15'2.04"N 16°43'6.28"E [cite: 642]</td></tr>
+                        [cite_start]<tr><td>3</td><td>VIA LIDO TORRE (S.P. 73) INCROCIO VIA MARE [cite: 642][cite_start]</td><td>Provinciale</td><td>40°15'15.46"N 16°43'6.86"E [cite: 642]</td></tr>
+                        [cite_start]<tr><td>4</td><td>VIA NAPOLI INCROCIO VIA VENETO [cite: 642][cite_start]</td><td>Comunale</td><td>40°16'56.21"N 16°44'51.70"E [cite: 642]</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        
+            <div class="alert-section alert-red">
+                <h4 class="alert-title-red">Allerta Rossa (Watch)</h4>
+                <h3>Aree di Protezione Civile</h3>
+                [cite_start]<p>Le aree (Attesa, Ammassamento, C.O.C.) sono le stesse dell'Allerta Arancione[cite: 634].</p>
+                [cite_start]<h3>Cancelli da Attivare (N. 10) [cite: 653]</h3>
+                <p>Si attivano tutti i cancelli da 1 a 10.</p>
+                 <table>
+                    <thead>
+                        <tr><th>N°</th><th>Ubicazione</th><th>Tipologia</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1-4</td><td colspan="2">Vedi cancelli Allerta Arancione</td></tr>
+                        <tr><td>5</td><td>VIA NAPOLI INCROCIO VIA PIEMONTE</td><td>Comunale</td></tr>
+                        <tr><td>6</td><td>VIA SICILIA INCROCIO VIA PIEMONTE</td><td>Comunale</td></tr>
+                        <tr><td>7</td><td>VIA LIDO TORRE (S.P. 73) INCROCIO VIA P. NENNI</td><td>Provinciale</td></tr>
+                        <tr><td>8</td><td>VIA MONVISO (S.P. 60) INCROCIO VIA ASCALESI</td><td>Provinciale</td></tr>
+                        <tr><td>9</td><td>SVINCOLO SS 598 - COMPLANARE S.S. 106</td><td>Statale</td></tr>
+                        <tr><td>10</td><td>VIABILITA ZONA D3 - SVINCOLO SS 598</td><td>Provinciale</td></tr>
+                    </tbody>
+                </table>
+                 <div class="note">
+                    <strong>Nota Bene:</strong> La via di allontanamento n.1 (Via Monviso) prevede un passaggio a livello. Le vie n. [cite_start]2 e 3 prevedono sottopassi ferroviari[cite: 619].
+                </div>
+            </div>
+        </div>
+        
+        <div id="Pisticci" class="tab-content">
+            <h2>Modello d'Intervento Comunale: Pisticci</h2>
+            [cite_start]<p>Mappa di riferimento: Pagina 28, Documento "Relazione di sintesi"[cite: 662].</p>
+        
+            <div class="alert-section alert-orange">
+                <h4 class="alert-title-orange">Allerta Arancione (Advisory)</h4>
+                 <h3>Aree di Protezione Civile</h3>
+                <table>
+                    <thead>
+                        <tr><th>Tipologia</th><th>Nome / Ubicazione</th></tr>
+                    </thead>
+                    <tbody>
+                        [cite_start]<tr><td>Vie di Allontanamento</td><td>7 percorsi principali [cite: 706]</td></tr>
+                        <tr><td>Area di Attesa</td><td>Loc. [cite_start]Ex Stazione di Marconia - Via Scannaturchi [cite: 709]</td></tr>
+                        <tr><td>Area Ammassamento Soccorritori</td><td>Loc. [cite_start]Ex Stazione di Marconia [cite: 709]</td></tr>
+                    </tbody>
+                </table>
+                [cite_start]<h3>Cancelli da Attivare (N. 6) [cite: 769]</h3>
+                 <table>
+                    <thead>
+                        <tr><th>N°</th><th>Ubicazione</th><th>Tipologia</th><th>Coordinate (WGS84)</th></tr>
+                    </thead>
+                    <tbody>
+                        [cite_start]<tr><td>1</td><td>VIALE 48 (S.P. 86) [cite: 729][cite_start]</td><td>Provinciale</td><td>40°19'27.70"N 16°47'34.68"E [cite: 731]</td></tr>
+                        [cite_start]<tr><td>2</td><td>VIA ULISSE (C.DA TORREMARE) [cite: 733][cite_start]</td><td>Comunale</td><td>40°18'59.02"N 16°47'16.90"E [cite: 735]</td></tr>
+                        [cite_start]<tr><td>3</td><td>VIA SCANNATURCHI [cite: 737][cite_start]</td><td>Comunale</td><td>40°18'40.01"N 16°47'2.83"E [cite: 739]</td></tr>
+                        [cite_start]<tr><td>4</td><td>VIA CALIPSO [cite: 741][cite_start]</td><td>Comunale</td><td>40°18'25.00"N 16°46'48.97"E [cite: 743]</td></tr>
+                        <tr><td>5</td><td>S.P. [cite_start]18 POZZITELLO/PISTICCI / S. BASILIO [cite: 745][cite_start]</td><td>Provinciale</td><td>40°17'58.65"N 16°46'36.14"E [cite: 747]</td></tr>
+                        [cite_start]<tr><td>6</td><td>LOCALITA' S. BASILIO [cite: 748][cite_start]</td><td>Comunale</td><td>40°17'55.88"N 16°46'9.32"E [cite: 751]</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        
+            <div class="alert-section alert-red">
+                <h4 class="alert-title-red">Allerta Rossa (Watch)</h4>
+                <h3>Aree di Protezione Civile</h3>
+                [cite_start]<p>Le aree (Attesa, Ammassamento) sono le stesse dell'Allerta Arancione[cite: 716].</p>
+                [cite_start]<h3>Cancelli da Attivare (N. 9) [cite: 768]</h3>
+                <p>Si attivano tutti i cancelli da 1 a 9.</p>
+                 <table>
+                    <thead>
+                        <tr><th>N°</th><th>Ubicazione</th><th>Tipologia</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1-6</td><td colspan="2">Vedi cancelli Allerta Arancione</td></tr>
+                        [cite_start]<tr><td>7</td><td>VIA DEGLI ARANCI [cite: 755]</td><td>Comunale</td></tr>
+                        [cite_start]<tr><td>8</td><td>VIALE 48 (S.P. 86) - STRADA PER SAN TEODORO [cite: 760]</td><td>Provinciale</td></tr>
+                        <tr><td>9</td><td>S.P. [cite_start]18 POZZITELLO/PISTICCI (LATO S.S. 106) [cite: 767]</td><td>Provinciale</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div id="Bernalda" class="tab-content">
+            <h2>Modello d'Intervento Comunale: Bernalda (Metaponto)</h2>
+            [cite_start]<p>Mappa di riferimento: Pagina 33, Documento "Relazione di sintesi"[cite: 777].</p>
+        
+            <div class="alert-section alert-orange">
+                <h4 class="alert-title-orange">Allerta Arancione (Advisory)</h4>
+                 <h3>Aree di Protezione Civile</h3>
+                <table>
+                    <thead>
+                        <tr><th>Tipologia</th><th>Nome / Ubicazione</th></tr>
+                    </thead>
+                    <tbody>
+                        [cite_start]<tr><td>Vie di Allontanamento</td><td>9 percorsi principali [cite: 825]</td></tr>
+                        [cite_start]<tr><td>Area di Attesa</td><td>Campo sportivo Metaponto - Traversa Via Lido [cite: 842]</td></tr>
+                        [cite_start]<tr><td>Area Ammassamento Soccorritori</td><td>Campo sportivo Metaponto [cite: 842]</td></tr>
+                        [cite_start]<tr><td>C.O.C.</td><td>Delegazione Comune - P.zza P. Giovanni XXIII [cite: 842]</td></tr>
+                    </tbody>
+                </table>
+                [cite_start]<h3>Cancelli da Attivare (N. 2) [cite: 900]</h3>
+                <table>
+                    <thead>
+                        <tr><th>N°</th><th>Ubicazione</th><th>Tipologia</th><th>Coordinate (WGS84)</th></tr>
+                    </thead>
+                    <tbody>
+                        [cite_start]<tr><td>1</td><td>VIA DEL LIDO (S.P. 40) [cite: 898][cite_start]</td><td>Provinciale</td><td>40°21'52.30"N - 16°49'50.42"E [cite: 898]</td></tr>
+                        [cite_start]<tr><td>2</td><td>VIA DEL LIDO (S.P. 40) [cite: 898][cite_start]</td><td>Provinciale</td><td>40°22'07.33"N - 16°49'18.57"E [cite: 898]</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        
+            <div class="alert-section alert-red">
+                <h4 class="alert-title-red">Allerta Rossa (Watch)</h4>
+                <h3>Aree di Protezione Civile</h3>
+                [cite_start]<p>Le aree (Attesa, Ammassamento, C.O.C.) sono le stesse dell'Allerta Arancione[cite: 885].</p>
+                [cite_start]<h3>Cancelli da Attivare (N. 3) [cite: 899]</h3>
+                <p>Si attivano tutti i cancelli da 1 a 3.</p>
+                 <table>
+                    <thead>
+                        <tr><th>N°</th><th>Ubicazione</th><th>Tipologia</th><th>Coordinate (WGS84)</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1-2</td><td colspan="3">Vedi cancelli Allerta Arancione</td></tr>
+                        [cite_start]<tr><td>3</td><td>STRADA D'ARGINE DESTRA BRADANO [cite: 898][cite_start]</td><td>Comunale</td><td>40°23'07.71"N - 16°50'07.85"E [cite: 898]</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="container">
+            [cite_start]<p>Fonte Dati: Prefettura di Matera - Aggiornamento del "Piano Provinciale di Protezione Civile per il Rischio Maremoto" (Rev. 2, 2023)[cite: 1, 7].</p>
+            <p>Questo portale è una simulazione a scopo dimostrativo e non sostituisce i documenti ufficiali e le direttive operative.</p>
+        </div>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+
+</body>
+</html>
