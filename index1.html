@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maremoto in Costa Jonica (Basilicata) - Protezione Civile Basilicata</title>
+    <link rel="icon" href="icopc.gif" type="image/gif">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0056b3; /* Blu scuro */
+            --secondary-color: #007bff; /* Blu più chiaro */
+            --accent-color: #28a745; /* Verde per enfasi */
+            --text-color: #333;
+            --light-bg: #f8f9fa; /* Sfondo chiaro */
+            --white: #ffffff;
+            --border-color: #dee2e6;
+            --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 1.5rem 0;
+            text-align: center;
+            box-shadow: var(--shadow);
+            display: flex; /* Utilizza flexbox per allineare logo e testo */
+            flex-direction: column; /* Impila gli elementi verticalmente */
+            align-items: center; /* Centra orizzontalmente gli elementi */
+            justify-content: center; /* Centra verticalmente gli elementi */
+        }
+
+        header img {
+            max-width: 120px; /* Dimensione massima del logo */
+            height: auto; /* Mantieni le proporzioni */
+            margin-bottom: 1rem; /* Spazio sotto il logo */
+            animation: fadeIn 1s ease-out; /* Animazione per il logo */
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        header p {
+            margin-top: 0.5rem;
+            font-size: 1.1rem;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+            flex-grow: 1;
+        }
+
+        section {
+            background-color: var(--white);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        h2 {
+            color: var(--secondary-color);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            background-color: var(--light-bg);
+            margin-bottom: 0.7rem;
+            padding: 0.8rem 1.2rem;
+            border-left: 5px solid var(--accent-color);
+            border-radius: 4px;
+            transition: background-color 0.2s ease;
+        }
+
+        ul li:hover {
+            background-color: #e9ecef;
+        }
+
+        .accordion .accordion-item {
+            margin-bottom: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .accordion .accordion-header {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .accordion .accordion-header:hover {
+            background-color: var(--primary-color);
+        }
+
+        .accordion .accordion-header span {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        /* --- MODIFICA 1 --- */
+        .accordion .accordion-content {
+            padding: 1.5rem;
+            background-color: var(--primary-color); /* Sfondo blu */
+            border-top: 1px solid var(--border-color);
+            display: none; /* Hidden by default */
+            color: var(--white); /* Testo bianco */
+        }
+
+        .accordion .accordion-content p {
+            margin-bottom: 1rem;
+        }
+
+        /* Regola aggiuntiva per i titoli e le liste nelle sezioni modificate */
+         .accordion .accordion-content h4 {
+            color: var(--white);
+        }
+         .accordion .accordion-content ul li {
+            background-color: #004a99; /* Blu leggermente più scuro per le liste */
+            border-left-color: var(--white); /* Bordo bianco */
+        }
+
+        .accordion .accordion-item.active .accordion-header span {
+            transform: rotate(90deg);
+        }
+
+        /* Stili specifici per la nuova sezione "Cosa sapere" */
+        .info-section {
+            background-color: var(--white);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        .info-section .info-header {
+            background-color: var(--primary-color); /* Colore primario per l'header della sezione info */
+            color: var(--white);
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.3rem; /* Dimensione del testo leggermente più grande */
+            border-radius: 8px 8px 0 0; /* Bordi arrotondati solo in alto */
+            transition: background-color 0.3s ease;
+        }
+
+        .info-section .info-header:hover {
+            background-color: var(--secondary-color); /* Cambia colore al passaggio del mouse */
+        }
+
+        .info-section .info-header span {
+            font-size: 1.8rem; /* Icona leggermente più grande */
+            transition: transform 0.3s ease;
+        }
+
+        /* --- MODIFICA 2 --- */
+        .info-section .info-content {
+            padding: 1.5rem;
+            background-color: var(--primary-color); /* Sfondo blu */
+            border: 1px solid var(--border-color);
+            border-top: none; 
+            border-radius: 0 0 8px 8px;
+            display: none;
+            color: var(--white); /* Testo bianco */
+        }
+        
+        /* Regola aggiuntiva per i titoli nella sezione modificata */
+        .info-section .info-content .question, .info-section .info-content h3 {
+            color: var(--white);
+            text-decoration: underline; /* Sottolinea per dare enfasi */
+        }
+
+
+        .info-section.active .info-header span {
+            transform: rotate(90deg);
+        }
+
+        .info-section .question {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .info-section p + .question { 
+            margin-top: 2rem;
+        }
+
+        .list-unstyled {
+            list-style: none;
+            padding-left: 0;
+        }
+        .list-unstyled li {
+            background-color: transparent; 
+            border-left: none;
+            padding: 0;
+            margin-bottom: 0.5rem;
+        }
+
+        .link-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .link-list a {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .link-list a:hover {
+            background-color: #218838;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 2rem;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* --- GALLERY STYLES --- */
+        .video-gallery-wrapper {
+            overflow-x: auto; 
+            -webkit-overflow-scrolling: touch; 
+            padding-bottom: 15px; 
+            scroll-snap-type: x mandatory; 
+            scrollbar-width: thin;
+            scrollbar-color: var(--secondary-color) var(--light-bg); 
+        }
+
+        .video-gallery {
+            display: flex; 
+            gap: 1.5rem; 
+            padding: 1rem 0;
+            min-width: fit-content;
+        }
+
+        .video-gallery-item {
+            flex: 0 0 45%; 
+            min-width: 300px;
+            max-width: 450px; 
+            scroll-snap-align: start; 
+            background-color: var(--light-bg);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .video-gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .video-gallery-item .video-title {
+            padding: 0.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            background-color: var(--white);
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .container {
+                margin: 1rem auto;
+                padding: 0 1rem;
+            }
+
+            section {
+                padding: 1.5rem;
+            }
+
+            h2 {
+                font-size: 1.7rem;
+            }
+
+            h3 {
+                font-size: 1.3rem;
+            }
+
+            .accordion .accordion-header, .info-section .info-header {
+                font-size: 1rem;
+                padding: 0.8rem 1rem;
+            }
+
+            .link-list {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .video-gallery-item {
+                flex: 0 0 90%; 
+                min-width: unset; 
+                max-width: unset;
+            }
+            .video-gallery-wrapper {
+                padding-bottom: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            header p {
+                font-size: 0.9rem;
+            }
+            section {
+                padding: 1rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            header img {
+                max-width: 100px; 
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="LOGO.png" alt="Logo Protezione Civile Basilicata">
+            <h1>Maremoto in Costa Jonica (Basilicata)</h1>
+            <p>Guida alla Sicurezza della Protezione Civile Regione Basilicata</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <section>
+            <h2>Comprendere il Maremoto</h2>
+            <p>Guarda questo video fondamentale per capire meglio il fenomeno del maremoto e le basi della sicurezza.</p>
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/HsXXiONDcLs?si=wjAthZSTcFIkIaW3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        ---
+
+        <section class="info-section">
+            <div class="info-header">
+                <h2>Cosa sapere sul Maremoto</h2>
+                <span>+</span>
+            </div>
+            <div class="info-content">
+                <p>Il maremoto, in giapponese tsunami, è costituito da una serie di onde marine prodotte dal rapido spostamento di una grande massa d’acqua.</p>
+                <p>In mare aperto le onde si propagano molto velocemente percorrendo grandi distanze, con altezze quasi impercettibili, ma con lunghezze d’onda (distanza tra un’onda e la successiva) che possono raggiungere alcune decine di chilometri.</p>
+                <p>Avvicinandosi alla costa, la velocità dell’onda diminuisce mentre la sua altezza aumenta rapidamente, anche di decine di metri. La prima onda può non essere la più grande e tra l’arrivo di un’onda e la successiva possono passare diversi minuti.</p>
+
+                <p class="question">Quali sono le cause?</p>
+                <p>Le cause principali sono i forti terremoti con epicentro in mare o vicino alla costa. I maremoti possono essere generati anche da frane sottomarine o costiere, da attività vulcanica in mare o vicina alla costa e, molto più raramente, da meteoriti che cadono in mare.</p>
+
+                <p class="question">L'Italia è a rischio maremoto?</p>
+                <p>Sì, tutte le coste del Mediterraneo sono a rischio maremoto. Bisogna inoltre considerare che le coste italiane possono essere raggiunte anche da maremoti generati in aree del Mediterraneo lontane dal nostro Paese.</p>
+
+                <p class="question">Che cosa succede sulle coste?</p>
+                <p>Il maremoto si manifesta come un rapido innalzamento del livello del mare o come un vero e proprio muro d’acqua che si abbatte sulle coste, causando un’inondazione. A volte si osserva un iniziale e improvviso ritiro del mare.</p>
+                <p>Le onde di maremoto hanno molta più forza rispetto alle mareggiate e sono in grado di spingersi nell’entroterra anche per centinaia di metri – addirittura chilometri, se la costa è molto bassa – trascinando tutto ciò che trovano lungo il percorso.</p>
+
+                <p class="question">Quando avverrà?</p>
+                <p>Non è possibile saperlo: può verificarsi in qualsiasi momento. Sui maremoti sappiamo molte cose, ma nessuno è in grado di prevedere quando e dove si verificheranno.</p>
+
+                <p class="question">In Italia esiste un sistema di allertamento?</p>
+                <p>Sì, esiste il Sistema di Allertamento nazionale per i Maremoti generati da terremoto nel Mar Mediterraneo (SiAM).</p>
+                <p>Al sistema collaborano l’Istituto Nazionale di Geofisica e Vulcanologia, che opera attraverso il Centro Allerta Tsunami, l’Istituto Superiore per la Protezione e la Ricerca Ambientale e il Dipartimento della Protezione Civile.</p>
+                <p>Obiettivo del sistema è valutare la possibilità che un terremoto con epicentro in mare o vicino alla costa possa generare un maremoto, in modo tale da attivare nel minor tempo possibile il Servizio Nazionale della Protezione Civile e informare la popolazione.</p>
+                <p>Il SiAM fa parte del sistema di allertamento internazionale sul modello di quelli attivi nel Mar dei Caraibi e negli Oceani Pacifico e Indiano, con una differenza sostanziale: in un mare poco ampio come il Mediterraneo, i tempi di arrivo delle onde sono molto brevi e la possibilità di allertare la popolazione ridotta. È quindi importante conoscere bene i comportamenti da adottare in caso di emergenza.</p>
+
+
+                <h3>Cosa sapere fin da subito</h3>
+                <p>In un mare poco ampio come il Mediterraneo i tempi di arrivo delle onde sono molto brevi. Le autorità potrebbero non avere il tempo per diramare un’allerta.</p>
+                <p>Quindi è ancora più importante imparare a riconoscere i fenomeni che possono segnalare l’arrivo di un maremoto:</p>
+                <ul class="list-unstyled">
+                    <li>- un forte terremoto che hai percepito o di cui hai avuto notizia;</li>
+                    <li>- un rumore cupo e crescente che proviene dal mare, come quello di un treno o di un aereo a bassa quota;</li>
+                    <li>- un improvviso e insolito ritiro del mare, un rapido innalzamento del livello del mare o una grande onda estesa su tutto l’orizzonte.</li>
+                </ul>
+                <p>Ricorda che le case e gli edifici vicini alla costa non sempre sono sicuri:</p>
+                <ul class="list-unstyled">
+                    <li>- la sicurezza di un edificio dipende da molti fattori, per esempio la tipologia e la qualità dei materiali utilizzati nella costruzione, la quota a cui si trova, la distanza dalla riva, il numero di piani, l’esposizione più o meno diretta all’impatto dell’onda;</li>
+                    <li>- generalmente i piani alti di un edificio in cemento armato, se l’edificio è ben costruito, possono offrire una protezione adeguata.</li>
+                </ul>
+            </div>
+        </section>
+
+        ---
+
+        <section>
+            <h2>Galleria Video Informativi</h2>
+            <p>Esplora altri video utili per approfondire la tua conoscenza sul rischio maremoto e le misure di sicurezza.</p>
+            <div class="video-gallery-wrapper">
+                <div class="video-gallery">
+                    <div class="video-gallery-item">
+                        <div class="video-container">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/HsXXiONDcLs?si=pUxDJsvy98Z7_iP5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-title">Allerta Maremoto: Cosa Fare</div>
+                    </div>
+                    <div class="video-gallery-item">
+                        <div class="video-container">
+                             <iframe width="560" height="315" src="https://www.youtube.com/embed/ZNkiU42glf8?si=5-c64QdHcxFfY2Pb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-title">La Prevenzione è Fondamentale</div>
+                    </div>
+                    <div class="video-gallery-item">
+                        <div class="video-container">
+                             <iframe width="560" height="315" src="https://www.youtube.com/embed/zEhSFKhma0Y?si=0puB7dS_aMojJdyI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-title">Piani di Evacuazione</div>
+                    </div>
+                    <div class="video-gallery-item">
+                        <div class="video-container">
+                             <iframe width="560" height="315" src="https://www.youtube.com/embed/O_goGeLCJ98?si=n23KrULiHmp0h1GA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-title">Sicurezza in Costa Jonica</div>
+                    </div>
+                    </div>
+            </div>
+        </section>
+
+        ---
+
+        <section class="accordion">
+            <h2>Guida: Cosa Fare in Caso di Maremoto</h2>
+            <p>La tua sicurezza è la nostra priorità. Segui queste indicazioni per proteggere te stesso e i tuoi cari.</p>
+
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <h3>Fin da subito</h3>
+                    <span>+</span>
+                </div>
+                <div class="accordion-content">
+                    <h4>Se vivi, lavori o soggiorni in una zona a rischio maremoto:</h4>
+                    <ul>
+                        <li><strong>Informati</strong> sul Piano di protezione civile del Comune per sapere quali sono le zone pericolose, le vie e i tempi di evacuazione, la segnaletica da seguire e le aree di attesa da raggiungere in caso di emergenza.</li>
+                        <li><strong>Informati</strong> sulla sicurezza della tua casa e dei luoghi che la circondano.</li>
+                        <li>Assicurati che la tua scuola o il luogo in cui lavori abbiano un piano di evacuazione e che vengano fatte esercitazioni periodiche.</li>
+                        <li>Preparati all’emergenza con la tua famiglia e fate un piano su come raggiungere le vie di fuga e le aree di attesa.</li>
+                        <li>Tieni in casa scorte di acqua e cibo e prepara un kit di emergenza che contenga, ad esempio, copia dei documenti, cassetta di pronto soccorso, torcia elettrica, radio a pile, ecc.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <h3>Durante il maremoto</h3>
+                    <span>+</span>
+                </div>
+                <div class="accordion-content">
+                    <h4>Se sei in spiaggia o in una zona costiera:</h4>
+                    <p>Se ricevi un messaggio di allerta che indica il possibile arrivo di un’onda di maremoto, oppure riconosci almeno uno di questi fenomeni:</p>
+                    <ul class="list-unstyled">
+                        <li>- forte terremoto che hai percepito direttamente o di cui hai avuto notizia;</li>
+                        <li>- improvviso e insolito ritiro del mare, rapido innalzamento del livello del mare o grande onda estesa su tutto l’orizzonte;</li>
+                        <li>- rumore cupo e crescente che proviene dal mare, come quello di un treno o di un aereo a bassa quota.</li>
+                    </ul>
+                    <ul>
+                        <li>Allontanati e raggiungi rapidamente l’area vicina più elevata (per esempio una collina o i piani alti di un edificio).</li>
+                        <li>Avverti** le persone intorno a te del pericolo imminente.</li>
+                        <li>Corri seguendo la via di fuga più rapida.</li>
+                        <li>Non usare l’automobile, potrebbe diventare una trappola.</li>
+                    </ul>
+                    <h4>Se sei in barca:</h4>
+                    <ul>
+                        <li>Potresti non accorgerti dei fenomeni che accompagnano l’arrivo di un maremoto, per questo è importante ascoltare sempre i comunicati radio.</li>
+                        <li>Se sei in barca e hai avuto notizia di un terremoto sulla costa o in mare, portati al largo.</li>
+                        <li>Se sei in porto abbandona la barca e mettiti al sicuro in un posto elevato.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <h3>Dopo il maremoto</h3>
+                    <span>+</span>
+                </div>
+                <div class="accordion-content">
+                    <ul>
+                        <li>Rimani nell’area che hai raggiunto e cerca di dissuadere chi vuole tornare verso la costa: alla prima onda potrebbero seguirne altre più pericolose.</li>
+                        <li>Assicurati delle condizioni di salute delle persone intorno a te e, se possibile, presta i primi soccorsi.</li>
+                        <li>Segui le indicazioni delle autorità per capire quando lasciare il luogo in cui ti trovi e cosa fare.</li>
+                        <li>Usa il telefono solo per reale necessità.</li>
+                        <li>Non bere acqua del rubinetto.</li>
+                        <li>Non mangiare cibi che siano venuti a contatto con l’acqua e con i materiali trasportati dal maremoto: potrebbero essere contaminati.</li>
+                        <li>Se la tua abitazione è stata interessata dal maremoto, non rientrare prima di essere autorizzato.</li>
+                    </ul>
+                    <p>Il maremoto può essere generato da un terremoto o da attività vulcanica: informati, quindi, anche su cosa fare in caso di terremoto o eruzione.</p>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 1.5rem;">
+                Per approfondimenti, visita la sezione dedicata ai maremoti sul sito <a href="https://www.iononrischio.gov.it/it/preparati/maremoto/cosa-fare/" target="_blank" style="color: var(--secondary-color); text-decoration: underline; font-weight: bold;">IoNonRischio</a>.
+            </p>
+        </section>
+
+        ---
+
+        <section>
+            <h2>Link Utili</h2>
+            <p style="text-align: center;">Per maggiori informazioni e aggiornamenti, consulta i seguenti siti:</p>
+            <div class="link-list">
+                <a href="https://www.protezionecivile.basilicata.it/" target="_blank">Protezione Civile Regione Basilicata</a>
+                <a href="https://www.protezionecivile.gov.it/" target="_blank">Dipartimento della Protezione Civile Nazionale</a>
+                <a href="https://www.ingv.it/" target="_blank">Istituto Nazionale di Geofisica e Vulcanologia (INGV)</a>
+                <a href="https://studio--tsunamisafe.us-central1.hosted.app/" target="_blank">TSUNAMI SAFE APP</a>
+<a href="https://idranti-basilicata-870e1.web.app/" target="_blank">IDRANTI</a>
+            </div>
+            <p style="text-align: center; margin-top: 2rem; font-weight: bold; color: var(--primary-color);">
+                Ricorda: la conoscenza e la prevenzione sono le migliori armi contro il rischio maremoto. Condividi queste informazioni con la tua famiglia e i tuoi amici.
+            </p>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Protezione Civile Regione Basilicata. Tutti i diritti riservati.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Funzionalità per la sezione "Guida: Cosa Fare"
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    const accordionItem = this.parentNode;
+                    const accordionContent = this.nextElementSibling;
+
+                    // Chiudi tutti gli altri elementi dell'accordion aperti, tranne quello cliccato
+                    document.querySelectorAll('.accordion-item.active').forEach(item => {
+                        if (item !== accordionItem) {
+                            item.classList.remove('active');
+                            item.querySelector('.accordion-content').style.display = 'none';
+                        }
+                    });
+
+                    // Apri o chiudi l'elemento corrente
+                    accordionItem.classList.toggle('active');
+                    if (accordionContent.style.display === 'block') {
+                        accordionContent.style.display = 'none';
+                    } else {
+                        accordionContent.style.display = 'block';
+                    }
+                });
+            });
+
+            // Nuova funzionalità per la sezione "Cosa Sapere"
+            const infoSectionHeader = document.querySelector('.info-section .info-header');
+            const infoSectionContent = document.querySelector('.info-section .info-content');
+            const infoSection = document.querySelector('.info-section');
+
+            infoSectionHeader.addEventListener('click', function() {
+                infoSection.classList.toggle('active');
+                if (infoSectionContent.style.display === 'block') {
+                    infoSectionContent.style.display = 'none';
+                } else {
+                    infoSectionContent.style.display = 'block';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
