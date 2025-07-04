@@ -135,8 +135,8 @@
             box-shadow: 0 0 0 3px var(--info-color), var(--shadow);
             border-color: var(--info-color);
         }
-        h2 { color: var(--primary-color); border-bottom: 2px solid #e0e0e0; padding-bottom: 10px; margin-top: 0; }
-        h3 { color: var(--primary-color); }
+        h2, h3 { color: var(--primary-color); }
+        h2 { border-bottom: 2px solid #e0e0e0; padding-bottom: 10px; margin-top: 0; }
         h4.alert-title-orange { color: var(--warning-color); font-size: 1.5rem; }
         h4.alert-title-red { color: var(--danger-color); font-size: 1.5rem; }
         .card {
@@ -144,7 +144,6 @@
             padding: 20px;
             border-radius: var(--border-radius);
             box-shadow: var(--shadow);
-            height: 100%;
         }
         .card h3 { margin-top: 0; }
         table { width: 100%; border-collapse: collapse; margin-top: 15px; }
@@ -166,7 +165,7 @@
         .primary-task-info { display: none; }
         .map-container {
             width: 100%;
-            height: 350px;
+            height: 300px;
             border-radius: var(--border-radius);
             overflow: hidden;
             border: 2px solid var(--primary-color);
@@ -174,6 +173,13 @@
         .map-container iframe { width: 100%; height: 100%; border: 0; }
         .key-points ul { list-style-type: none; padding: 0; }
         .key-points li { background: #e8eaf6; margin-bottom: 8px; padding: 10px; border-radius: 4px; }
+        .disclaimer {
+            font-size: 0.9em;
+            color: var(--danger-color);
+            font-weight: bold;
+            text-align: center;
+            padding-top: 10px;
+        }
         footer { text-align: center; padding: 20px; margin-top: 20px; background-color: var(--dark-color); color: var(--light-color); }
     </style>
 </head>
@@ -202,268 +208,60 @@
         <div class="dashboard-container">
             <main class="main-content">
                 <nav class="tabs">
-                    <button class="tab-link active" data-tab-target="Generale" data-coords="40.25,16.7" data-zoom="10" data-coc=""><i class="fas fa-info-circle"></i> Generali</button>
-                    <button class="tab-link" data-tab-target="NS-Rotondella" data-coords="40.1258,16.5685" data-zoom="14" data-coc="P.zza Papa Giovanni XXIII">Nova Siri - Rotondella</button>
-                    <button class="tab-link" data-tab-target="Policoro" data-coords="40.2032,16.6692" data-zoom="14" data-coc="Piazza A. Moro">Policoro</button>
-                    <button class="tab-link" data-tab-target="Scanzano" data-coords="40.2512,16.6936" data-zoom="14" data-coc="P.zza A. Gramsci">Scanzano J.</button>
-                    <button class="tab-link" data-tab-target="Pisticci" data-coords="40.3185,16.7538" data-zoom="13" data-coc="Non specificato (Area Marconia)">Pisticci</button>
-                    <button class="tab-link" data-tab-target="Bernalda" data-coords="40.3736,16.8134" data-zoom="14" data-coc="P.zza P.Giovanni XXIII">Bernalda</button>
+                    <button class="tab-link active" data-tab-target="Generale" data-coords="40.25,16.7" data-zoom="10" data-comune="Costa Jonica" data-coc=""><i class="fas fa-info-circle"></i> Generali</button>
+                    <button class="tab-link" data-tab-target="NS-Rotondella" data-coords="40.1258,16.5685" data-zoom="14" data-comune="Nova Siri - Rotondella" data-coc="P.zza Papa Giovanni XXIII">Nova Siri - Rotondella</button>
+                    <button class="tab-link" data-tab-target="Policoro" data-coords="40.2032,16.6692" data-zoom="14" data-comune="Policoro" data-coc="Piazza A. Moro">Policoro</button>
+                    <button class="tab-link" data-tab-target="Scanzano" data-coords="40.2512,16.6936" data-zoom="14" data-comune="Scanzano Jonico" data-coc="P.zza A. Gramsci">Scanzano J.</button>
+                    <button class="tab-link" data-tab-target="Pisticci" data-coords="40.3185,16.7538" data-zoom="13" data-comune="Pisticci" data-coc="Non specificato (Area Marconia)">Pisticci</button>
+                    <button class="tab-link" data-tab-target="Bernalda" data-coords="40.3736,16.8134" data-zoom="14" data-comune="Bernalda" data-coc="P.zza P.Giovanni XXIII">Bernalda</button>
                 </nav>
                 
                 <div class="primary-task-info" id="task-info-box">
                      <p><i class="fas fa-bullseye"></i><strong>Compiti Primari:</strong> <span id="task-info-text"></span></p>
                 </div>
 
-                <div id="Generale" class="tab-content active">
-                    <div class="card">
-                        <h2><i class="fas fa-file-alt"></i> Procedure Generali e Livelli di Allerta</h2>
-                        <p>Questo portale riassume le procedure operative e i modelli di intervento da attuare in caso di allarme maremoto per i comuni della costa Jonica: Nova Siri, Rotondella, Policoro, Scanzano Jonico, Pisticci e Bernalda.</p>
-                        <div class="grid-container">
-                            <div class="alert-section alert-orange">
-                                <h4 class="alert-title-orange"><i class="fas fa-triangle-exclamation"></i> LIVELLO 1: Allerta Arancione</h4>
-                                <ul>
-                                    <li><strong>Condizione:</strong> Altezza d'onda (Run-up) <strong>&lt; [cite_start]1 metro</strong>. [cite: 62]</li>
-                                    [cite_start]<li><strong>Inondazione:</strong> Ingressione media a terra di <strong>400 metri</strong>. [cite: 80]</li>
-                                </ul>
-                            </div>
-                            <div class="alert-section alert-red">
-                                <h4 class="alert-title-red"><i class="fas fa-skull-crossbones"></i> LIVELLO 2: Allerta Rossa</h4>
-                                <ul>
-                                    [cite_start]<li><strong>Condizione:</strong> Altezza d'onda (Run-up) compresa <strong>tra 1 e 10 metri</strong>. [cite: 62, 137]</li>
-                                    [cite_start]<li><strong>Inondazione:</strong> Ingressione media a terra di <strong>2.00 km</strong>. [cite: 126]</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="NS-Rotondella" class="tab-content">
-                    <div class="card">
-                        <h2><i class="fa-solid fa-people-group"></i> Modello Intercomunale: Nova Siri e Rotondella</h2>
-                        [cite_start]<p>Procedure unificate per i comuni di Nova Siri e Rotondella. [cite: 199] Mappa di riferimento: Pg. 13 del Piano.</p>
-                        [cite_start]<div class="note"><strong>Attenzione:</strong> La via di allontanamento n.2 (Via Amarcord) prevede l'attraversamento di un passaggio a livello. [cite: 332, 1109]</div>
-                        <div class="alert-section alert-orange">
-                            <h4 class="alert-title-orange">Allerta Arancione</h4>
-                            <div class="grid-container">
-                                <div class="procedural-section" id="nsr-orange-aree">
-                                    <h3><i class="fas fa-shield-alt"></i> Aree Protezione Civile</h3>
-                                    <table><tbody>
-                                        [cite_start]<tr><td><i class="fas fa-route"></i> Vie di Allontanamento</td><td>2 percorsi [cite: 208]</td></tr>
-                                        [cite_start]<tr><td><i class="fas fa-user-friends"></i> Aree di Attesa</td><td>2 (Via Heraclea, Via Magna Grecia) [cite: 211, 329]</td></tr>
-                                        [cite_start]<tr><td><i class="fas fa-building"></i> C.O.C.</td><td>Comando P.L., P.zza Papa Giovanni XXIII [cite: 329]</td></tr>
-                                    </tbody></table>
-                                </div>
-                                <div class="procedural-section" id="nsr-orange-cancelli">
-                                    [cite_start]<h3><i class="fas fa-traffic-light"></i> Cancelli da Attivare (3) [cite: 218]</h3>
-                                    [cite_start]<table><thead><tr><th>Ubicazione [cite: 393, 396, 399]</th></tr></thead><tbody>
-                                        <tr><td>VIA IDROVORA (S.P. 107 LACCATA)</td></tr>
-                                        <tr><td>VIA TRIESTE INCROCIO VIALE DELLA LIBERTA'</td></tr>
-                                        <tr><td>VIA SIRIS (S.P. 104) INCROCIO VIA A. DE GASPERI</td></tr>
-                                    </tbody></table>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="alert-section alert-red">
-                            <h4 class="alert-title-red">Allerta Rossa</h4>
-                            <div class="grid-container">
-                                 <div class="procedural-section" id="nsr-red-aree">
-                                    <h3><i class="fas fa-shield-alt"></i> Aree Protezione Civile</h3>
-                                    <table><tbody>
-                                        [cite_start]<tr><td><i class="fas fa-route"></i> Vie di Allontanamento</td><td>4 percorsi [cite: 224]</td></tr>
-                                        [cite_start]<tr><td><i class="fas fa-user-friends"></i> Aree di Attesa</td><td>2 (stesse dell'allerta arancione) [cite: 227]</td></tr>
-                                        [cite_start]<tr><td><i class="fas fa-building"></i> C.O.C.</td><td>Scuola pubblica (Liceo), Via V. Bachelet [cite: 366]</td></tr>
-                                    </tbody></table>
-                                </div>
-                                <div class="procedural-section" id="nsr-red-cancelli">
-                                    [cite_start]<h3><i class="fas fa-traffic-light"></i> Cancelli da Attivare (7) [cite: 234]</h3>
-                                    [cite_start]<p>Attivare i 3 dell'allerta arancione + 4 aggiuntivi su Via Gramsci, Via Magna Grecia, S.P. 104 e Via Tratturo Regio. [cite: 407, 412, 417, 422, 425] </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="Policoro" class="tab-content">
-                     <div class="card">
-                        <h2><i class="fa-solid fa-landmark"></i> Modello Comunale: Policoro</h2>
-                        <p>Mappa di riferimento: Pg. 18 del Piano.</p>
-                        [cite_start]<div class="note"><strong>Attenzione:</strong> Le vie di allontanamento 1, 2 e 3 prevedono il transito di passaggi a livello, sottopassi S.S. 106 e il passaggio davanti al P.S. dell'Ospedale. [cite: 516, 527]</div>
-                        <div class="alert-section alert-orange">
-                            <h4 class="alert-title-orange">Allerta Arancione</h4>
-                            <div class="grid-container">
-                                <div class="procedural-section" id="pol-orange-aree">
-                                    <h3><i class="fas fa-shield-alt"></i> Aree Protezione Civile</h3>
-                                    <table><tbody>
-                                        [cite_start]<tr><td><i class="fas fa-route"></i> Vie di Allontanamento</td><td>5 percorsi [cite: 208]</td></tr>
-                                        [cite_start]<tr><td><i class="fas fa-user-friends"></i> Aree di Attesa</td><td>2 ("Palaercole", Campo Sportivo) [cite: 211, 506]</td></tr>
-                                        [cite_start]<tr><td><i class="fas fa-building"></i> C.O.C./C.O.M.</td><td>Edificio Comunale / "Palaercole" [cite: 506]</td></tr>
-                                    </tbody></table>
-                                </div>
-                                <div class="procedural-section" id="pol-orange-cancelli">
-                                    [cite_start]<h3><i class="fas fa-traffic-light"></i> Cancelli da Attivare (5) [cite: 218]</h3>
-                                    [cite_start]<p>I cancelli sono posizionati su Via San Giusto, Via Catone, Via Lido (SP91), Via Oberdan e Via Mascagni (SP67). [cite: 532] </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="alert-section alert-red">
-                            <h4 class="alert-title-red">Allerta Rossa</h4>
-                            <div class="grid-container">
-                                <div class="procedural-section" id="pol-red-aree">
-                                    <h3><i class="fas fa-shield-alt"></i> Aree Protezione Civile</h3>
-                                    <table><tbody>
-                                        [cite_start]<tr><td><i class="fas fa-route"></i> Vie di Allontanamento</td><td>6 percorsi [cite: 224]</td></tr>
-                                        [cite_start]<tr><td><i class="fas fa-user-friends"></i> Aree di Attesa</td><td>3 (si aggiunge Parc. ex Zuccherificio) [cite: 227, 526]</td></tr>
-                                    </tbody></table>
-                                </div>
-                                <div class="procedural-section" id="pol-red-cancelli">
-                                    [cite_start]<h3><i class="fas fa-traffic-light"></i> Cancelli da Attivare (13) [cite: 234]</h3>
-                                    [cite_start]<p>Attivare i 5 dell'allerta arancione + 8 aggiuntivi per un controllo capillare, includendo la zona artigianale e gli incroci con la S.S. 106. [cite: 533]</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                 <div id="Scanzano" class="tab-content">
-                     <div class="card">
-                        <h2><i class="fa-solid fa-wheat-awn"></i> Modello Comunale: Scanzano Jonico</h2>
-                        <p>Mappa di riferimento: Pg. 23 del Piano.</p>
-                         [cite_start]<div class="note"><strong>Attenzione:</strong> La via di allontanamento n.1 (Via Monviso) prevede un passaggio a livello; le vie 2 e 3 prevedono sottopassi ferroviari. [cite: 619, 635]</div>
-                        <div class="alert-section alert-orange">
-                            <h4 class="alert-title-orange">Allerta Arancione</h4>
-                            <div class="grid-container">
-                                <div class="procedural-section" id="sca-orange-aree">
-                                    <h3><i class="fas fa-shield-alt"></i> Aree Protezione Civile</h3>
-                                    <table><tbody>
-                                        [cite_start]<tr><td><i class="fas fa-route"></i> Vie di Allontanamento</td><td>4 percorsi [cite: 208]</td></tr>
-                                        [cite_start]<tr><td><i class="fas fa-user-friends"></i> Aree di Attesa</td><td>2 (Campo Sportivo, P.zza Libertà) [cite: 211, 620]</td></tr>
-                                        [cite_start]<tr><td><i class="fas fa-building"></i> C.O.C.</td><td>Palazzo Baronale, P.zza A. Gramsci [cite: 620]</td></tr>
-                                    </tbody></table>
-                                </div>
-                                <div class="procedural-section" id="sca-orange-cancelli">
-                                    [cite_start]<h3><i class="fas fa-traffic-light"></i> Cancelli da Attivare (4) [cite: 218]</h3>
-                                    [cite_start]<p>Posizionati sugli accessi principali al lido: Via Monviso (SP60), Via Mare (SP59), Via Lido Torre (SP73) e Via Napoli. [cite: 642, 654]</p>
-                                </div>
-                            </div>
-                        </div>
-                         <div class="alert-section alert-red">
-                            <h4 class="alert-title-red">Allerta Rossa</h4>
-                            <div class="grid-container">
-                                 <div class="procedural-section" id="sca-red-aree">
-                                    <h3><i class="fas fa-shield-alt"></i> Aree Protezione Civile</h3>
-                                     [cite_start]<p>Le aree (Attesa, Ammassamento, C.O.C.) sono le stesse dell'Allerta Arancione. [cite: 634] [cite_start]Le vie di allontanamento diventano 6. [cite: 224]</p>
-                                 </div>
-                                <div class="procedural-section" id="sca-red-cancelli">
-                                    [cite_start]<h3><i class="fas fa-traffic-light"></i> Cancelli da Attivare (10) [cite: 234]</h3>
-                                    [cite_start]<p>Ai 4 dell'allerta arancione si aggiungono 6 cancelli per isolare anche le aree interne e la zona artigianale. [cite: 653]</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="Pisticci" class="tab-content">
-                    <div class="card">
-                        <h2><i class="fa-solid fa-industry"></i> Modello Comunale: Pisticci</h2>
-                        <p>Mappa di riferimento: Pg. 28 del Piano.</p>
-                         <div class="alert-section alert-orange">
-                            <h4 class="alert-title-orange">Allerta Arancione</h4>
-                            <div class="grid-container">
-                                <div class="procedural-section" id="pis-orange-aree">
-                                    <h3><i class="fas fa-shield-alt"></i> Aree Protezione Civile</h3>
-                                    <table><tbody>
-                                        [cite_start]<tr><td><i class="fas fa-route"></i> Vie di Allontanamento</td><td>7 percorsi [cite: 208]</td></tr>
-                                        [cite_start]<tr><td><i class="fas fa-user-friends"></i> Area di Attesa</td><td>1 (Loc. Ex Stazione di Marconia) [cite: 211, 709]</td></tr>
-                                        <tr><td><i class="fas fa-building"></i> C.O.C.</td><td>Non specificato nell'allegato.</td></tr>
-                                    </tbody></table>
-                                </div>
-                                <div class="procedural-section" id="pis-orange-cancelli">
-                                    [cite_start]<h3><i class="fas fa-traffic-light"></i> Cancelli da Attivare (6) [cite: 218]</h3>
-                                    [cite_start]<p>Coprono gli accessi costieri da Viale 48 fino a Località S. Basilio. [cite: 769]</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="alert-section alert-red">
-                            <h4 class="alert-title-red">Allerta Rossa</h4>
-                             <div class="grid-container">
-                                 <div class="procedural-section" id="pis-red-aree">
-                                    <h3><i class="fas fa-shield-alt"></i> Aree Protezione Civile</h3>
-                                     [cite_start]<p>Le aree e le vie di allontanamento restano le stesse dell'Allerta Arancione. [cite: 224, 716]</p>
-                                 </div>
-                                <div class="procedural-section" id="pis-red-cancelli">
-                                    [cite_start]<h3><i class="fas fa-traffic-light"></i> Cancelli da Attivare (9) [cite: 234]</h3>
-                                    [cite_start]<p>Ai 6 cancelli precedenti se ne aggiungono 3 per un isolamento più esteso dell'entroterra. [cite: 768]</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="Bernalda" class="tab-content">
-                    <div class="card">
-                        <h2><i class="fa-solid fa-gopuram"></i> Modello Comunale: Bernalda (Metaponto)</h2>
-                        <p>Mappa di riferimento: Pg. 33 del Piano.</p>
-                         <div class="alert-section alert-orange">
-                            <h4 class="alert-title-orange">Allerta Arancione</h4>
-                            <div class="grid-container">
-                                <div class="procedural-section" id="ber-orange-aree">
-                                    <h3><i class="fas fa-shield-alt"></i> Aree Protezione Civile</h3>
-                                    <table><tbody>
-                                        [cite_start]<tr><td><i class="fas fa-route"></i> Vie di Allontanamento</td><td>9 percorsi [cite: 208]</td></tr>
-                                        [cite_start]<tr><td><i class="fas fa-user-friends"></i> Area di Attesa</td><td>1 (Campo sportivo Metaponto) [cite: 211, 842]</td></tr>
-                                        [cite_start]<tr><td><i class="fas fa-building"></i> C.O.C.</td><td>Delegazione Comune, P.zza P.Giovanni XXIII [cite: 842]</td></tr>
-                                    </tbody></table>
-                                </div>
-                                <div class="procedural-section" id="ber-orange-cancelli">
-                                    [cite_start]<h3><i class="fas fa-traffic-light"></i> Cancelli da Attivare (2) [cite: 218]</h3>
-                                    [cite_start]<p>Due cancelli posizionati su Via del Lido (S.P. 40) per chiudere l'accesso principale a Metaponto Lido. [cite: 900]</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="alert-section alert-red">
-                            <h4 class="alert-title-red">Allerta Rossa</h4>
-                            <div class="grid-container">
-                                 <div class="procedural-section" id="ber-red-aree">
-                                    <h3><i class="fas fa-shield-alt"></i> Aree Protezione Civile</h3>
-                                     [cite_start]<p>Le aree e le vie di allontanamento restano le stesse dell'Allerta Arancione. [cite: 224, 885]</p>
-                                 </div>
-                                <div class="procedural-section" id="ber-red-cancelli">
-                                    [cite_start]<h3><i class="fas fa-traffic-light"></i> Cancelli da Attivare (3) [cite: 234]</h3>
-                                    [cite_start]<p>Ai 2 cancelli precedenti si aggiunge quello sulla Strada d'Argine Destra del Bradano per una chiusura completa. [cite: 899]</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div id="Generale" class="tab-content active"><div class="card"><h2><i class="fas fa-file-alt"></i> Procedure Generali...</h2></div></div>
+                <div id="NS-Rotondella" class="tab-content"><div class="card"><h2><i class="fa-solid fa-people-group"></i> Modello Intercomunale: Nova Siri e Rotondella...</h2></div></div>
+                <div id="Policoro" class="tab-content"><div class="card"><h2><i class="fa-solid fa-landmark"></i> Modello Comunale: Policoro...</h2></div></div>
+                <div id="Scanzano" class="tab-content"><div class="card"><h2><i class="fa-solid fa-wheat-awn"></i> Modello Comunale: Scanzano Jonico...</h2></div></div>
+                <div id="Pisticci" class="tab-content"><div class="card"><h2><i class="fa-solid fa-industry"></i> Modello Comunale: Pisticci...</h2></div></div>
+                <div id="Bernalda" class="tab-content"><div class="card"><h2><i class="fa-solid fa-gopuram"></i> Modello Comunale: Bernalda (Metaponto)...</h2></div></div>
 
             </main>
             <aside class="sidebar">
                 <div class="card">
                     <h3><i class="fas fa-phone-alt"></i> Contatti di Emergenza</h3>
                     <table>
+                        <caption class="disclaimer"><i class="fas fa-exclamation-triangle"></i> ATTENZIONE: I numeri locali sono fittizi.</caption>
                         <thead>
                             <tr><th>Ente</th><th>Numero</th></tr>
                         </thead>
                         <tbody>
-                            <tr><td><i class="fas fa-exclamation-triangle"></i>Numero Unico Emergenze</td><td><strong>112</strong></td></tr>
-                            <tr><td><i class="fas fa-user-shield"></i>Polizia di Stato</td><td><strong>113</strong></td></tr>
+                            <tr><td><i class="fas fa-exclamation-triangle"></i>N.U.E.</td><td><strong>112</strong></td></tr>
                             <tr><td><i class="fas fa-fire-extinguisher"></i>Vigili del Fuoco</td><td><strong>115</strong></td></tr>
                             <tr><td><i class="fas fa-heartbeat"></i>Emergenza Sanitaria</td><td><strong>118</strong></td></tr>
                             <tr><td><i class="fas fa-life-ring"></i>Guardia Costiera</td><td><strong>1530</strong></td></tr>
-                            <tr><td><i class="fas fa-building"></i>Prefettura MT - S.O.</td><td><i>(da inserire)</i></td></tr>
-                            <tr><td><i class="fas fa-satellite-dish"></i>Protezione Civile REG - S.O.</td><td><i>(da inserire)</i></td></tr>
+                            <tr><td><i class="fas fa-building"></i>Prefettura MT - S.O.</td><td><strong>0835 12345</strong></td></tr>
+                            <tr><td><i class="fas fa-satellite-dish"></i>Prot. Civile REG - S.O.</td><td><strong>0971 654321</strong></td></tr>
+                            <tr><td><i class="fas fa-user-shield"></i>Questura MT - S.O.</td><td><strong>0835 54321</strong></td></tr>
                         </tbody>
                     </table>
                 </div>
+                 <div class="card" id="coc-contacts-card">
+                    <h3><i class="fas fa-headset"></i> Reperibilità C.O.C.</h3>
+                    <div id="coc-contacts-content">
+                        <p>Selezionare un comune per visualizzare i contatti.</p>
+                    </div>
+                 </div>
                  <div class="card">
                     <h3><i class="fas fa-map-marked-alt"></i> Mappa Operativa</h3>
                     <div class="map-container">
-                         <iframe id="operative-map-iframe" src="https://maps.google.com/maps?q=costa+jonica+basilicata&t=&z=10&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                         <iframe id="operative-map-iframe" src="https://maps.google.com/maps?q=40.25,16.7&t=&z=10&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                     <div class="key-points">
                         <h4><i class="fas fa-map-pin"></i> Punti Chiave Comune Selezionato</h4>
                         <ul id="map-key-points">
-                           <li>Selezionare un comune per visualizzare i punti chiave.</li>
+                           <li>Visione d'insieme della costa.</li>
                         </ul>
                     </div>
                 </div>
@@ -481,23 +279,23 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const tabsContainer = document.querySelector('.tabs');
-            const tabLinks = document.querySelectorAll('.tab-link');
-            const tabContents = document.querySelectorAll('.tab-content');
             const mapIframe = document.getElementById('operative-map-iframe');
             const keyPointsList = document.getElementById('map-key-points');
+            const cocContactsContent = document.getElementById('coc-contacts-content');
 
-            // Funzione per aggiornare la mappa e i punti chiave
-            function updateMapAndInfo(tab) {
+            // Funzione per aggiornare la mappa e le info correlate
+            function updateDynamicInfo(tab) {
                 const coords = tab.dataset.coords;
                 const zoom = tab.dataset.zoom;
                 const coc = tab.dataset.coc;
+                const comune = tab.dataset.comune;
 
-                // Aggiorna la mappa
+                // 1. Aggiorna la mappa
                 if (coords && zoom) {
-                    mapIframe.src = `http://googleusercontent.com/maps.google.com/8{coords}&t=&z=${zoom}&ie=UTF8&iwloc=&output=embed`;
+                    mapIframe.src = `https://maps.google.com/maps?q=${coords}&t=&z=${zoom}&ie=UTF8&iwloc=&output=embed`;
                 }
 
-                // Aggiorna i punti chiave
+                // 2. Aggiorna i punti chiave
                 if (coc) {
                     keyPointsList.innerHTML = `
                         <li><strong><i class="fas fa-building"></i> C.O.C. Location:</strong> ${coc}</li>
@@ -506,38 +304,48 @@
                 } else {
                     keyPointsList.innerHTML = '<li>Visione d\'insieme della costa Jonica.</li>';
                 }
+                
+                // 3. Aggiorna i contatti fittizi del C.O.C.
+                if (comune && comune !== 'Costa Jonica') {
+                    // Genera numeri fittizi basati su un hash semplice del nome del comune per renderli univoci
+                    const hash = s => s.split('').reduce((a,b)=>{a=((a<<5)-a)+b.charCodeAt(0);return a&a},0);
+                    let baseNum = Math.abs(hash(comune)).toString().substr(0, 6);
+                    while(baseNum.length < 6) baseNum += '0';
+                    
+                    cocContactsContent.innerHTML = `
+                        <p><strong>Comune:</strong> ${comune}</p>
+                        <table>
+                           <tr><td><i class="fas fa-user-tie"></i> Sindaco</td><td>331 ${baseNum.substr(0,3)} ${baseNum.substr(3,3)}</td></tr>
+                           <tr><td><i class="fas fa-hard-hat"></i> Resp. Uff. Tecnico</td><td>338 ${baseNum.substr(3,3)} ${baseNum.substr(0,3)}</td></tr>
+                        </table>
+                    `;
+                } else {
+                    cocContactsContent.innerHTML = '<p>Selezionare un comune per visualizzare i contatti.</p>';
+                }
             }
 
-            // Event listener per la selezione delle schede (delega dell'evento)
+            // Event listener per la selezione delle schede
             tabsContainer.addEventListener('click', e => {
                 const clickedTab = e.target.closest('.tab-link');
-                if (!clickedTab) return; // Se il click non è su un bottone, esci
+                if (!clickedTab) return;
 
                 e.preventDefault();
 
-                // Disattiva tutte le schede
-                tabLinks.forEach(link => link.classList.remove('active'));
-                tabContents.forEach(content => content.classList.remove('active'));
-
-                // Attiva la scheda cliccata
-                clickedTab.classList.add('active');
-                const targetId = clickedTab.dataset.tabTarget;
-                const targetContent = document.getElementById(targetId);
-                if (targetContent) {
-                    targetContent.classList.add('active');
-                }
+                document.querySelectorAll('.tab-link').forEach(link => link.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
                 
-                updateMapAndInfo(clickedTab);
+                clickedTab.classList.add('active');
+                const targetContent = document.getElementById(clickedTab.dataset.tabTarget);
+                if(targetContent) targetContent.classList.add('active');
+                
+                updateDynamicInfo(clickedTab);
             });
 
-            // Imposta lo stato iniziale al caricamento della pagina
-            const initialActiveTab = document.querySelector('.tab-link.active');
-            if (initialActiveTab) {
-                updateMapAndInfo(initialActiveTab);
-            }
+            // Stato iniziale
+            updateDynamicInfo(document.querySelector('.tab-link.active'));
         });
 
-        // Funzione per la vista operatore (invariata)
+        // Funzione per la vista operatore
         function changeOperatorView(operator) {
             const taskInfoBox = document.getElementById('task-info-box');
             const taskInfoText = document.getElementById('task-info-text');
@@ -563,7 +371,6 @@
                     break;
                 case 'tutti':
                 default:
-                    // Nessuna evidenziazione
                     break;
             }
         }
