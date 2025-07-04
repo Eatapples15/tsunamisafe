@@ -82,6 +82,9 @@
             position: sticky;
             top: 85px; /* height of header + padding */
             align-self: flex-start;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
         .tabs {
             display: flex;
@@ -163,7 +166,7 @@
         .primary-task-info { display: none; }
         .map-container {
             width: 100%;
-            height: 400px;
+            height: 350px;
             border-radius: var(--border-radius);
             overflow: hidden;
             border: 2px solid var(--primary-color);
@@ -219,15 +222,15 @@
                             <div class="alert-section alert-orange">
                                 <h4 class="alert-title-orange"><i class="fas fa-triangle-exclamation"></i> LIVELLO 1: Allerta Arancione</h4>
                                 <ul>
-                                    <li><strong>Condizione:</strong> Altezza d'onda (Run-up) <strong>&lt; 1 metro</strong>.</li>
-                                    <li><strong>Inondazione:</strong> Ingressione media a terra di <strong>400 metri</strong>.</li>
+                                    <li><strong>Condizione:</strong> Altezza d'onda (Run-up) <strong>&lt; [cite_start]1 metro</strong>. [cite: 62]</li>
+                                    [cite_start]<li><strong>Inondazione:</strong> Ingressione media a terra di <strong>400 metri</strong>. [cite: 80]</li>
                                 </ul>
                             </div>
                             <div class="alert-section alert-red">
                                 <h4 class="alert-title-red"><i class="fas fa-skull-crossbones"></i> LIVELLO 2: Allerta Rossa</h4>
                                 <ul>
-                                    <li><strong>Condizione:</strong> Altezza d'onda (Run-up) compresa <strong>tra 1 e 10 metri</strong>.</li>
-                                    <li><strong>Inondazione:</strong> Ingressione media a terra di <strong>2.00 km</strong>.</li>
+                                    [cite_start]<li><strong>Condizione:</strong> Altezza d'onda (Run-up) compresa <strong>tra 1 e 10 metri</strong>. [cite: 62, 137]</li>
+                                    [cite_start]<li><strong>Inondazione:</strong> Ingressione media a terra di <strong>2.00 km</strong>. [cite: 126]</li>
                                 </ul>
                             </div>
                         </div>
@@ -237,22 +240,22 @@
                 <div id="NS-Rotondella" class="tab-content">
                     <div class="card">
                         <h2><i class="fa-solid fa-people-group"></i> Modello Intercomunale: Nova Siri e Rotondella</h2>
-                        <p>Procedure unificate per i comuni di Nova Siri e Rotondella. Mappa di riferimento: Pg. 13 del Piano.</p>
-                        <div class="note"><strong>Attenzione:</strong> La via di allontanamento n.2 (Via Amarcord) prevede l'attraversamento di un passaggio a livello.</div>
+                        [cite_start]<p>Procedure unificate per i comuni di Nova Siri e Rotondella. [cite: 199] Mappa di riferimento: Pg. 13 del Piano.</p>
+                        [cite_start]<div class="note"><strong>Attenzione:</strong> La via di allontanamento n.2 (Via Amarcord) prevede l'attraversamento di un passaggio a livello. [cite: 332, 1109]</div>
                         <div class="alert-section alert-orange">
                             <h4 class="alert-title-orange">Allerta Arancione</h4>
                             <div class="grid-container">
                                 <div class="procedural-section" id="nsr-orange-aree">
                                     <h3><i class="fas fa-shield-alt"></i> Aree Protezione Civile</h3>
                                     <table><tbody>
-                                        <tr><td><i class="fas fa-route"></i> Vie di Allontanamento</td><td>2 percorsi</td></tr>
-                                        <tr><td><i class="fas fa-user-friends"></i> Aree di Attesa</td><td>2 (Via Heraclea, Via Magna Grecia)</td></tr>
-                                        <tr><td><i class="fas fa-building"></i> C.O.C.</td><td>Comando P.L., P.zza Papa Giovanni XXIII</td></tr>
+                                        [cite_start]<tr><td><i class="fas fa-route"></i> Vie di Allontanamento</td><td>2 percorsi [cite: 208]</td></tr>
+                                        [cite_start]<tr><td><i class="fas fa-user-friends"></i> Aree di Attesa</td><td>2 (Via Heraclea, Via Magna Grecia) [cite: 211, 329]</td></tr>
+                                        [cite_start]<tr><td><i class="fas fa-building"></i> C.O.C.</td><td>Comando P.L., P.zza Papa Giovanni XXIII [cite: 329]</td></tr>
                                     </tbody></table>
                                 </div>
                                 <div class="procedural-section" id="nsr-orange-cancelli">
-                                    <h3><i class="fas fa-traffic-light"></i> Cancelli da Attivare (3)</h3>
-                                    <table><thead><tr><th>Ubicazione</th></tr></thead><tbody>
+                                    [cite_start]<h3><i class="fas fa-traffic-light"></i> Cancelli da Attivare (3) [cite: 218]</h3>
+                                    [cite_start]<table><thead><tr><th>Ubicazione [cite: 393, 396, 399]</th></tr></thead><tbody>
                                         <tr><td>VIA IDROVORA (S.P. 107 LACCATA)</td></tr>
                                         <tr><td>VIA TRIESTE INCROCIO VIALE DELLA LIBERTA'</td></tr>
                                         <tr><td>VIA SIRIS (S.P. 104) INCROCIO VIA A. DE GASPERI</td></tr>
@@ -266,14 +269,14 @@
                                  <div class="procedural-section" id="nsr-red-aree">
                                     <h3><i class="fas fa-shield-alt"></i> Aree Protezione Civile</h3>
                                     <table><tbody>
-                                        <tr><td><i class="fas fa-route"></i> Vie di Allontanamento</td><td>4 percorsi</td></tr>
-                                        <tr><td><i class="fas fa-user-friends"></i> Aree di Attesa</td><td>2 (stesse dell'allerta arancione)</td></tr>
-                                        <tr><td><i class="fas fa-building"></i> C.O.C.</td><td>Scuola pubblica (Liceo), Via V. Bachelet</td></tr>
+                                        [cite_start]<tr><td><i class="fas fa-route"></i> Vie di Allontanamento</td><td>4 percorsi [cite: 224]</td></tr>
+                                        [cite_start]<tr><td><i class="fas fa-user-friends"></i> Aree di Attesa</td><td>2 (stesse dell'allerta arancione) [cite: 227]</td></tr>
+                                        [cite_start]<tr><td><i class="fas fa-building"></i> C.O.C.</td><td>Scuola pubblica (Liceo), Via V. Bachelet [cite: 366]</td></tr>
                                     </tbody></table>
                                 </div>
                                 <div class="procedural-section" id="nsr-red-cancelli">
-                                    <h3><i class="fas fa-traffic-light"></i> Cancelli da Attivare (7)</h3>
-                                    <p>Attivare i 3 dell'allerta arancione + 4 aggiuntivi su Via Gramsci, Via Magna Grecia, S.P. 104 e Via Tratturo Regio.</p>
+                                    [cite_start]<h3><i class="fas fa-traffic-light"></i> Cancelli da Attivare (7) [cite: 234]</h3>
+                                    [cite_start]<p>Attivare i 3 dell'allerta arancione + 4 aggiuntivi su Via Gramsci, Via Magna Grecia, S.P. 104 e Via Tratturo Regio. [cite: 407, 412, 417, 422, 425] </p>
                                 </div>
                             </div>
                         </div>
@@ -284,21 +287,21 @@
                      <div class="card">
                         <h2><i class="fa-solid fa-landmark"></i> Modello Comunale: Policoro</h2>
                         <p>Mappa di riferimento: Pg. 18 del Piano.</p>
-                        <div class="note"><strong>Attenzione:</strong> Le vie di allontanamento 1, 2 e 3 prevedono il transito di passaggi a livello, sottopassi S.S. 106 e il passaggio davanti al P.S. dell'Ospedale.</div>
+                        [cite_start]<div class="note"><strong>Attenzione:</strong> Le vie di allontanamento 1, 2 e 3 prevedono il transito di passaggi a livello, sottopassi S.S. 106 e il passaggio davanti al P.S. dell'Ospedale. [cite: 516, 527]</div>
                         <div class="alert-section alert-orange">
                             <h4 class="alert-title-orange">Allerta Arancione</h4>
                             <div class="grid-container">
                                 <div class="procedural-section" id="pol-orange-aree">
                                     <h3><i class="fas fa-shield-alt"></i> Aree Protezione Civile</h3>
                                     <table><tbody>
-                                        <tr><td><i class="fas fa-route"></i> Vie di Allontanamento</td><td>5 percorsi</td></tr>
-                                        <tr><td><i class="fas fa-user-friends"></i> Aree di Attesa</td><td>2 ("Palaercole", Campo Sportivo)</td></tr>
-                                        <tr><td><i class="fas fa-building"></i> C.O.C./C.O.M.</td><td>Edificio Comunale / "Palaercole"</td></tr>
+                                        [cite_start]<tr><td><i class="fas fa-route"></i> Vie di Allontanamento</td><td>5 percorsi [cite: 208]</td></tr>
+                                        [cite_start]<tr><td><i class="fas fa-user-friends"></i> Aree di Attesa</td><td>2 ("Palaercole", Campo Sportivo) [cite: 211, 506]</td></tr>
+                                        [cite_start]<tr><td><i class="fas fa-building"></i> C.O.C./C.O.M.</td><td>Edificio Comunale / "Palaercole" [cite: 506]</td></tr>
                                     </tbody></table>
                                 </div>
                                 <div class="procedural-section" id="pol-orange-cancelli">
-                                    <h3><i class="fas fa-traffic-light"></i> Cancelli da Attivare (5)</h3>
-                                    <p>I cancelli sono posizionati su Via San Giusto, Via Catone, Via Lido (SP91), Via Oberdan e Via Mascagni (SP67).</p>
+                                    [cite_start]<h3><i class="fas fa-traffic-light"></i> Cancelli da Attivare (5) [cite: 218]</h3>
+                                    [cite_start]<p>I cancelli sono posizionati su Via San Giusto, Via Catone, Via Lido (SP91), Via Oberdan e Via Mascagni (SP67). [cite: 532] </p>
                                 </div>
                             </div>
                         </div>
@@ -308,13 +311,13 @@
                                 <div class="procedural-section" id="pol-red-aree">
                                     <h3><i class="fas fa-shield-alt"></i> Aree Protezione Civile</h3>
                                     <table><tbody>
-                                        <tr><td><i class="fas fa-route"></i> Vie di Allontanamento</td><td>6 percorsi</td></tr>
-                                        <tr><td><i class="fas fa-user-friends"></i> Aree di Attesa</td><td>3 (si aggiunge Parc. ex Zuccherificio)</td></tr>
+                                        [cite_start]<tr><td><i class="fas fa-route"></i> Vie di Allontanamento</td><td>6 percorsi [cite: 224]</td></tr>
+                                        [cite_start]<tr><td><i class="fas fa-user-friends"></i> Aree di Attesa</td><td>3 (si aggiunge Parc. ex Zuccherificio) [cite: 227, 526]</td></tr>
                                     </tbody></table>
                                 </div>
                                 <div class="procedural-section" id="pol-red-cancelli">
-                                    <h3><i class="fas fa-traffic-light"></i> Cancelli da Attivare (13)</h3>
-                                    <p>Attivare i 5 dell'allerta arancione + 8 aggiuntivi per un controllo capillare, includendo la zona artigianale e gli incroci con la S.S. 106.</p>
+                                    [cite_start]<h3><i class="fas fa-traffic-light"></i> Cancelli da Attivare (13) [cite: 234]</h3>
+                                    [cite_start]<p>Attivare i 5 dell'allerta arancione + 8 aggiuntivi per un controllo capillare, includendo la zona artigianale e gli incroci con la S.S. 106. [cite: 533]</p>
                                 </div>
                             </div>
                         </div>
@@ -325,21 +328,21 @@
                      <div class="card">
                         <h2><i class="fa-solid fa-wheat-awn"></i> Modello Comunale: Scanzano Jonico</h2>
                         <p>Mappa di riferimento: Pg. 23 del Piano.</p>
-                         <div class="note"><strong>Attenzione:</strong> La via di allontanamento n.1 (Via Monviso) prevede un passaggio a livello; le vie 2 e 3 prevedono sottopassi ferroviari.</div>
+                         [cite_start]<div class="note"><strong>Attenzione:</strong> La via di allontanamento n.1 (Via Monviso) prevede un passaggio a livello; le vie 2 e 3 prevedono sottopassi ferroviari. [cite: 619, 635]</div>
                         <div class="alert-section alert-orange">
                             <h4 class="alert-title-orange">Allerta Arancione</h4>
                             <div class="grid-container">
                                 <div class="procedural-section" id="sca-orange-aree">
                                     <h3><i class="fas fa-shield-alt"></i> Aree Protezione Civile</h3>
                                     <table><tbody>
-                                        <tr><td><i class="fas fa-route"></i> Vie di Allontanamento</td><td>4 percorsi</td></tr>
-                                        <tr><td><i class="fas fa-user-friends"></i> Aree di Attesa</td><td>2 (Campo Sportivo, P.zza Libertà)</td></tr>
-                                        <tr><td><i class="fas fa-building"></i> C.O.C.</td><td>Palazzo Baronale, P.zza A. Gramsci</td></tr>
+                                        [cite_start]<tr><td><i class="fas fa-route"></i> Vie di Allontanamento</td><td>4 percorsi [cite: 208]</td></tr>
+                                        [cite_start]<tr><td><i class="fas fa-user-friends"></i> Aree di Attesa</td><td>2 (Campo Sportivo, P.zza Libertà) [cite: 211, 620]</td></tr>
+                                        [cite_start]<tr><td><i class="fas fa-building"></i> C.O.C.</td><td>Palazzo Baronale, P.zza A. Gramsci [cite: 620]</td></tr>
                                     </tbody></table>
                                 </div>
                                 <div class="procedural-section" id="sca-orange-cancelli">
-                                    <h3><i class="fas fa-traffic-light"></i> Cancelli da Attivare (4)</h3>
-                                    <p>Posizionati sugli accessi principali al lido: Via Monviso (SP60), Via Mare (SP59), Via Lido Torre (SP73) e Via Napoli.</p>
+                                    [cite_start]<h3><i class="fas fa-traffic-light"></i> Cancelli da Attivare (4) [cite: 218]</h3>
+                                    [cite_start]<p>Posizionati sugli accessi principali al lido: Via Monviso (SP60), Via Mare (SP59), Via Lido Torre (SP73) e Via Napoli. [cite: 642, 654]</p>
                                 </div>
                             </div>
                         </div>
@@ -348,11 +351,11 @@
                             <div class="grid-container">
                                  <div class="procedural-section" id="sca-red-aree">
                                     <h3><i class="fas fa-shield-alt"></i> Aree Protezione Civile</h3>
-                                     <p>Le aree (Attesa, Ammassamento, C.O.C.) sono le stesse dell'Allerta Arancione. Le vie di allontanamento diventano 6.</p>
+                                     [cite_start]<p>Le aree (Attesa, Ammassamento, C.O.C.) sono le stesse dell'Allerta Arancione. [cite: 634] [cite_start]Le vie di allontanamento diventano 6. [cite: 224]</p>
                                  </div>
                                 <div class="procedural-section" id="sca-red-cancelli">
-                                    <h3><i class="fas fa-traffic-light"></i> Cancelli da Attivare (10)</h3>
-                                    <p>Ai 4 dell'allerta arancione si aggiungono 6 cancelli per isolare anche le aree interne e la zona artigianale.</p>
+                                    [cite_start]<h3><i class="fas fa-traffic-light"></i> Cancelli da Attivare (10) [cite: 234]</h3>
+                                    [cite_start]<p>Ai 4 dell'allerta arancione si aggiungono 6 cancelli per isolare anche le aree interne e la zona artigianale. [cite: 653]</p>
                                 </div>
                             </div>
                         </div>
@@ -369,14 +372,14 @@
                                 <div class="procedural-section" id="pis-orange-aree">
                                     <h3><i class="fas fa-shield-alt"></i> Aree Protezione Civile</h3>
                                     <table><tbody>
-                                        <tr><td><i class="fas fa-route"></i> Vie di Allontanamento</td><td>7 percorsi</td></tr>
-                                        <tr><td><i class="fas fa-user-friends"></i> Area di Attesa</td><td>1 (Loc. Ex Stazione di Marconia)</td></tr>
+                                        [cite_start]<tr><td><i class="fas fa-route"></i> Vie di Allontanamento</td><td>7 percorsi [cite: 208]</td></tr>
+                                        [cite_start]<tr><td><i class="fas fa-user-friends"></i> Area di Attesa</td><td>1 (Loc. Ex Stazione di Marconia) [cite: 211, 709]</td></tr>
                                         <tr><td><i class="fas fa-building"></i> C.O.C.</td><td>Non specificato nell'allegato.</td></tr>
                                     </tbody></table>
                                 </div>
                                 <div class="procedural-section" id="pis-orange-cancelli">
-                                    <h3><i class="fas fa-traffic-light"></i> Cancelli da Attivare (6)</h3>
-                                    <p>Coprono gli accessi costieri da Viale 48 fino a Località S. Basilio.</p>
+                                    [cite_start]<h3><i class="fas fa-traffic-light"></i> Cancelli da Attivare (6) [cite: 218]</h3>
+                                    [cite_start]<p>Coprono gli accessi costieri da Viale 48 fino a Località S. Basilio. [cite: 769]</p>
                                 </div>
                             </div>
                         </div>
@@ -385,11 +388,11 @@
                              <div class="grid-container">
                                  <div class="procedural-section" id="pis-red-aree">
                                     <h3><i class="fas fa-shield-alt"></i> Aree Protezione Civile</h3>
-                                     <p>Le aree e le vie di allontanamento restano le stesse dell'Allerta Arancione.</p>
+                                     [cite_start]<p>Le aree e le vie di allontanamento restano le stesse dell'Allerta Arancione. [cite: 224, 716]</p>
                                  </div>
                                 <div class="procedural-section" id="pis-red-cancelli">
-                                    <h3><i class="fas fa-traffic-light"></i> Cancelli da Attivare (9)</h3>
-                                    <p>Ai 6 cancelli precedenti se ne aggiungono 3 per un isolamento più esteso dell'entroterra.</p>
+                                    [cite_start]<h3><i class="fas fa-traffic-light"></i> Cancelli da Attivare (9) [cite: 234]</h3>
+                                    [cite_start]<p>Ai 6 cancelli precedenti se ne aggiungono 3 per un isolamento più esteso dell'entroterra. [cite: 768]</p>
                                 </div>
                             </div>
                         </div>
@@ -406,14 +409,14 @@
                                 <div class="procedural-section" id="ber-orange-aree">
                                     <h3><i class="fas fa-shield-alt"></i> Aree Protezione Civile</h3>
                                     <table><tbody>
-                                        <tr><td><i class="fas fa-route"></i> Vie di Allontanamento</td><td>9 percorsi</td></tr>
-                                        <tr><td><i class="fas fa-user-friends"></i> Area di Attesa</td><td>1 (Campo sportivo Metaponto)</td></tr>
-                                        <tr><td><i class="fas fa-building"></i> C.O.C.</td><td>Delegazione Comune, P.zza P.Giovanni XXIII</td></tr>
+                                        [cite_start]<tr><td><i class="fas fa-route"></i> Vie di Allontanamento</td><td>9 percorsi [cite: 208]</td></tr>
+                                        [cite_start]<tr><td><i class="fas fa-user-friends"></i> Area di Attesa</td><td>1 (Campo sportivo Metaponto) [cite: 211, 842]</td></tr>
+                                        [cite_start]<tr><td><i class="fas fa-building"></i> C.O.C.</td><td>Delegazione Comune, P.zza P.Giovanni XXIII [cite: 842]</td></tr>
                                     </tbody></table>
                                 </div>
                                 <div class="procedural-section" id="ber-orange-cancelli">
-                                    <h3><i class="fas fa-traffic-light"></i> Cancelli da Attivare (2)</h3>
-                                    <p>Due cancelli posizionati su Via del Lido (S.P. 40) per chiudere l'accesso principale a Metaponto Lido.</p>
+                                    [cite_start]<h3><i class="fas fa-traffic-light"></i> Cancelli da Attivare (2) [cite: 218]</h3>
+                                    [cite_start]<p>Due cancelli posizionati su Via del Lido (S.P. 40) per chiudere l'accesso principale a Metaponto Lido. [cite: 900]</p>
                                 </div>
                             </div>
                         </div>
@@ -422,11 +425,11 @@
                             <div class="grid-container">
                                  <div class="procedural-section" id="ber-red-aree">
                                     <h3><i class="fas fa-shield-alt"></i> Aree Protezione Civile</h3>
-                                     <p>Le aree e le vie di allontanamento restano le stesse dell'Allerta Arancione.</p>
+                                     [cite_start]<p>Le aree e le vie di allontanamento restano le stesse dell'Allerta Arancione. [cite: 224, 885]</p>
                                  </div>
                                 <div class="procedural-section" id="ber-red-cancelli">
-                                    <h3><i class="fas fa-traffic-light"></i> Cancelli da Attivare (3)</h3>
-                                    <p>Ai 2 cancelli precedenti si aggiunge quello sulla Strada d'Argine Destra del Bradano per una chiusura completa.</p>
+                                    [cite_start]<h3><i class="fas fa-traffic-light"></i> Cancelli da Attivare (3) [cite: 234]</h3>
+                                    [cite_start]<p>Ai 2 cancelli precedenti si aggiunge quello sulla Strada d'Argine Destra del Bradano per una chiusura completa. [cite: 899]</p>
                                 </div>
                             </div>
                         </div>
@@ -436,9 +439,26 @@
             </main>
             <aside class="sidebar">
                 <div class="card">
+                    <h3><i class="fas fa-phone-alt"></i> Contatti di Emergenza</h3>
+                    <table>
+                        <thead>
+                            <tr><th>Ente</th><th>Numero</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><i class="fas fa-exclamation-triangle"></i>Numero Unico Emergenze</td><td><strong>112</strong></td></tr>
+                            <tr><td><i class="fas fa-user-shield"></i>Polizia di Stato</td><td><strong>113</strong></td></tr>
+                            <tr><td><i class="fas fa-fire-extinguisher"></i>Vigili del Fuoco</td><td><strong>115</strong></td></tr>
+                            <tr><td><i class="fas fa-heartbeat"></i>Emergenza Sanitaria</td><td><strong>118</strong></td></tr>
+                            <tr><td><i class="fas fa-life-ring"></i>Guardia Costiera</td><td><strong>1530</strong></td></tr>
+                            <tr><td><i class="fas fa-building"></i>Prefettura MT - S.O.</td><td><i>(da inserire)</i></td></tr>
+                            <tr><td><i class="fas fa-satellite-dish"></i>Protezione Civile REG - S.O.</td><td><i>(da inserire)</i></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                 <div class="card">
                     <h3><i class="fas fa-map-marked-alt"></i> Mappa Operativa</h3>
                     <div class="map-container">
-                         <iframe id="operative-map-iframe" src="https://maps.google.com/maps?q=40.25,16.7&t=&z=10&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                         <iframe id="operative-map-iframe" src="https://maps.google.com/maps?q=costa+jonica+basilicata&t=&z=10&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                     <div class="key-points">
                         <h4><i class="fas fa-map-pin"></i> Punti Chiave Comune Selezionato</h4>
@@ -474,7 +494,7 @@
 
                 // Aggiorna la mappa
                 if (coords && zoom) {
-                    mapIframe.src = `https://maps.google.com/maps?q=${coords}&t=&z=${zoom}&ie=UTF8&iwloc=&output=embed`;
+                    mapIframe.src = `http://googleusercontent.com/maps.google.com/8{coords}&t=&z=${zoom}&ie=UTF8&iwloc=&output=embed`;
                 }
 
                 // Aggiorna i punti chiave
