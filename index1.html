@@ -96,6 +96,16 @@
             margin-top: 1.5rem;
             margin-bottom: 1rem;
         }
+        
+        /* --- MODIFICA CHIAVE --- */
+        /* Sovrascrive il colore dei titoli h2 e h3 SOLO quando sono dentro i pulsanti di espansione */
+        .info-section .info-header h2,
+        .accordion .accordion-header h3 {
+            color: var(--white); /* Imposta il colore del testo a bianco */
+            border-bottom: none;  /* Rimuove la linea sotto il titolo "Cosa sapere..." */
+            margin-bottom: 0;     /* Azzera il margine per un migliore allineamento */
+        }
+
 
         .video-container {
             position: relative;
@@ -163,26 +173,15 @@
             transition: transform 0.3s ease;
         }
 
-        /* --- MODIFICA 1 --- */
         .accordion .accordion-content {
             padding: 1.5rem;
-            background-color: var(--primary-color); /* Sfondo blu */
+            background-color: var(--white);
             border-top: 1px solid var(--border-color);
             display: none; /* Hidden by default */
-            color: var(--white); /* Testo bianco */
         }
 
         .accordion .accordion-content p {
             margin-bottom: 1rem;
-        }
-
-        /* Regola aggiuntiva per i titoli e le liste nelle sezioni modificate */
-         .accordion .accordion-content h4 {
-            color: var(--white);
-        }
-         .accordion .accordion-content ul li {
-            background-color: #004a99; /* Blu leggermente più scuro per le liste */
-            border-left-color: var(--white); /* Bordo bianco */
         }
 
         .accordion .accordion-item.active .accordion-header span {
@@ -221,26 +220,17 @@
             transition: transform 0.3s ease;
         }
 
-        /* --- MODIFICA 2 --- */
         .info-section .info-content {
             padding: 1.5rem;
-            background-color: var(--primary-color); /* Sfondo blu */
+            background-color: var(--white);
             border: 1px solid var(--border-color);
-            border-top: none; 
-            border-radius: 0 0 8px 8px;
-            display: none;
-            color: var(--white); /* Testo bianco */
+            border-top: none; /* Rimuovi il bordo superiore se l'header ha bordi arrotondati */
+            border-radius: 0 0 8px 8px; /* Bordi arrotondati solo in basso */
+            display: none; /* Nascosto di default */
         }
-        
-        /* Regola aggiuntiva per i titoli nella sezione modificata */
-        .info-section .info-content .question, .info-section .info-content h3 {
-            color: var(--white);
-            text-decoration: underline; /* Sottolinea per dare enfasi */
-        }
-
 
         .info-section.active .info-header span {
-            transform: rotate(90deg);
+            transform: rotate(90deg); /* Ruota l'icona quando la sezione è attiva */
         }
 
         .info-section .question {
@@ -249,7 +239,7 @@
             margin-top: 1.5rem;
             margin-bottom: 0.5rem;
         }
-        .info-section p + .question { 
+        .info-section p + .question { /* Spazio sopra le domande se precedute da un paragrafo */
             margin-top: 2rem;
         }
 
@@ -258,11 +248,12 @@
             padding-left: 0;
         }
         .list-unstyled li {
-            background-color: transparent; 
+            background-color: transparent; /* Rimuovi sfondo e bordo per i li in questa lista */
             border-left: none;
             padding: 0;
             margin-bottom: 0.5rem;
         }
+
 
         .link-list {
             display: flex;
@@ -300,32 +291,32 @@
 
         /* --- GALLERY STYLES --- */
         .video-gallery-wrapper {
-            overflow-x: auto; 
-            -webkit-overflow-scrolling: touch; 
-            padding-bottom: 15px; 
-            scroll-snap-type: x mandatory; 
-            scrollbar-width: thin;
-            scrollbar-color: var(--secondary-color) var(--light-bg); 
+            overflow-x: auto; /* Abilita lo scroll orizzontale */
+            -webkit-overflow-scrolling: touch; /* Migliora lo scroll su iOS */
+            padding-bottom: 15px; /* Spazio per la scrollbar */
+            scroll-snap-type: x mandatory; /* Snap ai video */
+            scrollbar-width: thin; /* Firefox */
+            scrollbar-color: var(--secondary-color) var(--light-bg); /* Firefox */
         }
 
         .video-gallery {
-            display: flex; 
-            gap: 1.5rem; 
+            display: flex; /* Metti i video in riga */
+            gap: 1.5rem; /* Spazio tra i video */
             padding: 1rem 0;
-            min-width: fit-content;
+            min-width: fit-content; /* Permette lo scroll se i contenuti sono troppi */
         }
 
         .video-gallery-item {
-            flex: 0 0 45%; 
-            min-width: 300px;
-            max-width: 450px; 
-            scroll-snap-align: start; 
+            flex: 0 0 45%; /* Dimensione fissa per 2 video su desktop */
+            min-width: 300px; /* Larghezza minima per evitare video troppo stretti */
+            max-width: 450px; /* Larghezza massima */
+            scroll-snap-align: start; /* Allinea l'inizio del video allo snap point */
             background-color: var(--light-bg);
             border-radius: 8px;
             box-shadow: var(--shadow);
             overflow: hidden;
             transition: transform 0.3s ease;
-            flex-shrink: 0;
+            flex-shrink: 0; /* Impedisce ai video di rimpicciolirsi */
         }
 
         .video-gallery-item:hover {
@@ -374,13 +365,14 @@
                 align-items: center;
             }
 
+            /* Gallery responsive adjustments */
             .video-gallery-item {
-                flex: 0 0 90%; 
-                min-width: unset; 
+                flex: 0 0 90%; /* Un video per riga su schermi piccoli */
+                min-width: unset; /* Rimuove il min-width per schermi piccoli */
                 max-width: unset;
             }
             .video-gallery-wrapper {
-                padding-bottom: 10px;
+                padding-bottom: 10px; /* Ridotto spazio scrollbar */
             }
         }
 
@@ -399,7 +391,7 @@
             }
 
             header img {
-                max-width: 100px; 
+                max-width: 100px; /* Logo leggermente più piccolo su mobile */
             }
         }
 
