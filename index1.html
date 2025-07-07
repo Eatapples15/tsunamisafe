@@ -8,15 +8,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #0056b3;
-            --secondary-color: #007bff;
-            --accent-color: #28a745;
+            --primary-color: #0056b3; /* Blu scuro */
+            --secondary-color: #007bff; /* Blu più chiaro */
+            --accent-color: #28a745; /* Verde per enfasi */
             --text-color: #333;
-            --light-bg: #f8f9fa;
+            --light-bg: #f8f9fa; /* Sfondo chiaro */
             --white: #ffffff;
             --border-color: #dee2e6;
             --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
+
         body {
             font-family: 'Roboto', sans-serif;
             line-height: 1.6;
@@ -28,6 +29,7 @@
             flex-direction: column;
             min-height: 100vh;
         }
+
         header {
             background-color: var(--primary-color);
             color: var(--white);
@@ -39,28 +41,33 @@
             align-items: center;
             justify-content: center;
         }
+
         header img {
             max-width: 120px;
             height: auto;
             margin-bottom: 1rem;
             animation: fadeIn 1s ease-out;
         }
+
         header h1 {
             margin: 0;
             font-size: 2.5rem;
             animation: fadeInDown 1s ease-out;
         }
+
         header p {
             margin-top: 0.5rem;
             font-size: 1.1rem;
             animation: fadeIn 1.5s ease-out;
         }
+
         .container {
             max-width: 1000px;
             margin: 2rem auto;
             padding: 0 1.5rem;
             flex-grow: 1;
         }
+
         section {
             background-color: var(--white);
             padding: 2rem;
@@ -68,6 +75,7 @@
             border-radius: 8px;
             box-shadow: var(--shadow);
         }
+
         h2 {
             color: var(--secondary-color);
             font-size: 2rem;
@@ -75,18 +83,21 @@
             border-bottom: 2px solid var(--border-color);
             padding-bottom: 0.5rem;
         }
+
         h3 {
             color: var(--primary-color);
             font-size: 1.5rem;
             margin-top: 1.5rem;
             margin-bottom: 1rem;
         }
+        
         .info-section .info-header h2,
         .accordion .accordion-header h3 {
             color: var(--white);
             border-bottom: none;
             margin-bottom: 0;
         }
+
         .video-container {
             position: relative;
             width: 100%;
@@ -96,6 +107,7 @@
             border-radius: 8px;
             margin-top: 1.5rem;
         }
+
         .video-container iframe {
             position: absolute;
             top: 0;
@@ -104,7 +116,12 @@
             height: 100%;
             border: 0;
         }
-        ul { list-style: none; padding: 0; }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
         ul li {
             background-color: var(--light-bg);
             margin-bottom: 0.7rem;
@@ -112,6 +129,7 @@
             border-left: 5px solid var(--accent-color);
             border-radius: 4px;
         }
+
         .accordion .accordion-item, .info-section {
             margin-bottom: 1rem;
             border: 1px solid var(--border-color);
@@ -119,6 +137,7 @@
             overflow: hidden;
             background-color: var(--white);
         }
+
         .accordion .accordion-header, .info-section .info-header {
             background-color: var(--secondary-color);
             color: var(--white);
@@ -127,42 +146,102 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            font-weight: bold;
         }
+
         .accordion .accordion-content, .info-section .info-content {
             padding: 1.5rem;
             border-top: 1px solid var(--border-color);
             display: none;
         }
-        .accordion-item.active .accordion-content, .info-section.active .info-content {
+
+        .accordion-item.active .accordion-content,
+        .info-section.active .info-content {
             display: block;
         }
-        .list-unstyled { list-style: none; padding-left: 0; }
-        .list-unstyled li { background-color: transparent; border-left: none; padding: 0; margin-bottom: 0.5rem; }
-        .link-list { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-top: 2rem; }
-        .link-list a { display: inline-block; background-color: var(--accent-color); color: var(--white); padding: 0.8rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: bold; }
-        footer { background-color: var(--primary-color); color: var(--white); text-align: center; padding: 1.5rem 0; margin-top: 2rem; }
-        .video-gallery-wrapper { overflow-x: auto; padding-bottom: 15px; scroll-snap-type: x mandatory; }
-        .video-gallery { display: flex; gap: 1.5rem; padding: 1rem 0; min-width: fit-content; }
-        .video-gallery-item { flex: 0 0 45%; min-width: 300px; scroll-snap-align: start; background-color: var(--light-bg); border-radius: 8px; box-shadow: var(--shadow); overflow: hidden; }
-        .video-gallery-item .video-title { padding: 0.8rem; font-weight: bold; color: var(--primary-color); background-color: var(--white); text-align: center; }
+        
+        .list-unstyled {
+            list-style: none;
+            padding-left: 0;
+        }
+        .list-unstyled li {
+            background-color: transparent;
+            border-left: none;
+            padding: 0;
+            margin-bottom: 0.5rem;
+        }
 
-        /* --- MODIFICHE STILI ASSISTENTE E CHATBOT --- */
+        .link-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+        .link-list a {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 2rem;
+        }
+
+        .video-gallery-wrapper {
+            overflow-x: auto;
+            padding-bottom: 15px;
+            scroll-snap-type: x mandatory;
+        }
+        .video-gallery {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1rem 0;
+            min-width: fit-content;
+        }
+        .video-gallery-item {
+            flex: 0 0 45%;
+            min-width: 300px;
+            scroll-snap-align: start;
+            background-color: var(--light-bg);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+        .video-gallery-item .video-title {
+            padding: 0.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            background-color: var(--white);
+            text-align: center;
+        }
+
+        /* --- STILI INTEGRATI E AGGIORNATI --- */
         #video-assistant-container {
             position: fixed;
-            width: 400px; 
-            height: 650px; /* Altezza aumentata */
-            right: 25px;
-            bottom: 25px;
-            border-radius: 12px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            width: 350px; /* Aumentato */
+            height: 550px; /* Altezza aumentata notevolmente */
+            right: 30px;
+            bottom: 30px;
+            border-radius: 15px; /* Angoli arrotondati */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
             z-index: 1000;
             background-color: #000;
             overflow: hidden;
+            transition: width 0.3s, height 0.3s;
         }
         #assistant-video {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: cover; /* Assicura che il video riempia senza distorsioni */
             cursor: pointer;
             opacity: 0;
             transition: opacity 0.5s ease;
@@ -179,7 +258,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.3);
+            background-color: rgba(0, 0, 0, 0.4);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -188,36 +267,41 @@
             transition: opacity 0.5s ease;
         }
         #play-overlay-icon {
-            font-size: 80px;
-            color: rgba(255, 255, 255, 0.8);
-            text-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            font-size: 90px;
+            color: rgba(255, 255, 255, 0.85);
+            text-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
         }
         #volume-button {
             position: absolute;
-            bottom: 10px;
-            right: 10px;
-            width: 40px;
-            height: 40px;
+            bottom: 15px;
+            right: 15px;
+            width: 45px;
+            height: 45px;
             background-color: rgba(0, 0, 0, 0.6);
             color: white;
             border: none;
             border-radius: 50%;
-            font-size: 20px;
+            font-size: 22px;
             cursor: pointer;
             display: none;
             align-items: center;
             justify-content: center;
             z-index: 1002;
+            transition: background-color 0.3s;
         }
+        #volume-button:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
         @media (max-width: 768px) {
             #video-assistant-container {
-                width: 280px; 
-                height: 280px; /* Altezza aumentata */
+                width: 250px;
+                height: 400px;
                 bottom: 20px;
                 right: 20px;
             }
         }
-        /* --- FINE MODIFICHE STILI --- */
+        /* --- FINE STILI INTEGRATI --- */
 
         @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
