@@ -394,7 +394,83 @@
                 max-width: 100px; /* Logo leggermente più piccolo su mobile */
             }
         }
+ /* --- STILI INTEGRATI E AGGIORNATI --- */
+        #video-assistant-container {
+            position: fixed;
+            width: 350px; /* Aumentato */
+            height: 550px; /* Altezza aumentata notevolmente */
+            right: 30px;
+            bottom: 30px;
+            border-radius: 15px; /* Angoli arrotondati */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            z-index: 1000;
+            background-color: #000;
+            overflow: hidden;
+            transition: width 0.3s, height 0.3s;
+        }
+        #assistant-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Assicura che il video riempia senza distorsioni */
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        #assistant-video.video-active {
+            opacity: 1;
+        }
+        #botsonic-launcher-button {
+            display: none !important;
+        }
+        #play-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 1001;
+            transition: opacity 0.5s ease;
+        }
+        #play-overlay-icon {
+            font-size: 90px;
+            color: rgba(255, 255, 255, 0.85);
+            text-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+        }
+        #volume-button {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            width: 45px;
+            height: 45px;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 22px;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1002;
+            transition: background-color 0.3s;
+        }
+        #volume-button:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+        }
 
+        @media (max-width: 768px) {
+            #video-assistant-container {
+                width: 250px;
+                height: 400px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
         /* Animations */
         @keyframes fadeInDown {
             from {
@@ -615,7 +691,30 @@
             <p>© 2025 Protezione Civile Regione Basilicata. Tutti i diritti riservati.</p>
         </div>
     </footer>
+<div id="video-assistant-container">
+        <div id="play-overlay">
+            <div id="play-overlay-icon">▶️</div>
+        </div>
+        <video id="assistant-video">
+            <source src="https://res.cloudinary.com/dq8ooponi/video/upload/v1751877697/assistente_compresso_2_kq1o2w.mp4" type="video/mp4">
+            Il video non è stato trovato.
+        </video>
+        <button id="volume-button">🔊</button>
+    </div>
 
+    <script>
+      (function (w, d, s, o, f, js, fjs) {
+        w["botsonic_widget"] = o;
+        w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments); };
+        js = d.createElement(s), fjs = d.getElementsByTagName(s)[0];
+        js.id = o; js.src = f; js.async = 1; fjs.parentNode.insertBefore(js, fjs);
+      })(window, document, "script", "Botsonic", "https://widget.botsonic.com/CDN/botsonic.min.js");
+      Botsonic("init", {
+        serviceBaseUrl: "https://api-azure.botsonic.ai",
+        token: "a6fb65e3-813c-4ae9-9baf-04f23df6fb82",
+        position: 'bottom-left',
+      });
+    </script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Funzionalità per la sezione "Guida: Cosa Fare"
