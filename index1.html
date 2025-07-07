@@ -8,11 +8,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #0056b3; /* Blu scuro */
-            --secondary-color: #007bff; /* Blu più chiaro */
-            --accent-color: #28a745; /* Verde per enfasi */
+            --primary-color: #0056b3;
+            --secondary-color: #007bff;
+            --accent-color: #28a745;
             --text-color: #333;
-            --light-bg: #f8f9fa; /* Sfondo chiaro */
+            --light-bg: #f8f9fa;
             --white: #ffffff;
             --border-color: #dee2e6;
             --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -43,14 +43,17 @@
             max-width: 120px;
             height: auto;
             margin-bottom: 1rem;
+            animation: fadeIn 1s ease-out;
         }
         header h1 {
             margin: 0;
             font-size: 2.5rem;
+            animation: fadeInDown 1s ease-out;
         }
         header p {
             margin-top: 0.5rem;
             font-size: 1.1rem;
+            animation: fadeIn 1.5s ease-out;
         }
         .container {
             max-width: 1000px;
@@ -72,8 +75,71 @@
             border-bottom: 2px solid var(--border-color);
             padding-bottom: 0.5rem;
         }
-        
-        /* --- STILI PER L'ASSISTENTE E CHATBOT --- */
+        h3 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .info-section .info-header h2,
+        .accordion .accordion-header h3 {
+            color: var(--white);
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            background-color: var(--light-bg);
+            margin-bottom: 0.7rem;
+            padding: 0.8rem 1.2rem;
+            border-left: 5px solid var(--accent-color);
+            border-radius: 4px;
+        }
+        .accordion .accordion-item, .info-section {
+            margin-bottom: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: var(--white);
+        }
+        .accordion .accordion-header, .info-section .info-header {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .accordion .accordion-content, .info-section .info-content {
+            padding: 1.5rem;
+            border-top: 1px solid var(--border-color);
+            display: none;
+        }
+        .accordion-item.active .accordion-content, .info-section.active .info-content {
+            display: block;
+        }
+        /* --- Stili per assistente e chatbot --- */
         #video-assistant-container {
             position: fixed;
             width: 220px;
@@ -85,10 +151,6 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             z-index: 999;
             cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-        #video-assistant-container:hover {
-            transform: scale(1.05);
         }
         #assistant-video {
             width: 100%;
@@ -98,14 +160,13 @@
         #botsonic-launcher-button {
             display: none !important;
         }
-
-        @media (max-width: 768px) {
-            #video-assistant-container {
-                width: 150px;
-                height: 150px;
-                bottom: 15px;
-                right: 15px;
-            }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
     </style>
 </head>
@@ -120,37 +181,54 @@
 
     <div class="container">
         <section>
-            <h2>Benvenuto</h2>
-            <p>Questa è una pagina dimostrativa con l'assistente virtuale integrato.</p>
+            <h2>Comprendere il Maremoto</h2>
+            <p>Guarda questo video fondamentale...</p>
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/HsXXiONDcLs?si=wjAthZSTcFIkIaW3" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+            </div>
         </section>
-    </div>
+        <hr>
+        <div class="info-section">
+            <div class="info-header">
+                <h2>Cosa sapere sul Maremoto</h2>
+            </div>
+            <div class="info-content">
+                <p>Il maremoto, in giapponese tsunami...</p>
+            </div>
+        </div>
+        <hr>
+        <section class="accordion">
+            <h2>Guida: Cosa Fare in Caso di Maremoto</h2>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <h3>Fin da subito</h3>
+                </div>
+                <div class="accordion-content">
+                    <p>Se vivi, lavori o soggiorni...</p>
+                </div>
+            </div>
+        </section>
+        </div>
 
     <footer>
         <div class="container">
-            <p>© 2025 Protezione Civile Regione Basilicata. Tutti i diritti riservati.</p>
+            <p>© 2025 Protezione Civile Regione Basilicata.</p>
         </div>
     </footer>
 
     <div id="video-assistant-container" title="Clicca per chiedere aiuto all'assistente">
-        <video id="assistant-video" loop muted playsinline autoplay>
-            <source src="https://drive.google.com/file/d/1Fy-3nob7kRRR2PNmIff8KlBjhgLu7Iui/view?usp=drive_link" type="video/mp4">
-            Il tuo browser non supporta il tag video.
+        <video id="assistant-video" loop muted playsinline>
+            <source src="assistente_compresso.mp4" type="video/mp4">
+            Video non trovato.
         </video>
     </div>
 
     <script>
       (function (w, d, s, o, f, js, fjs) {
         w["botsonic_widget"] = o;
-        w[o] =
-          w[o] ||
-          function () {
-            (w[o].q = w[o].q || []).push(arguments);
-          };
-        (js = d.createElement(s)), (fjs = d.getElementsByTagName(s)[0]);
-        js.id = o;
-        js.src = f;
-        js.async = 1;
-        fjs.parentNode.insertBefore(js, fjs);
+        w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments); };
+        js = d.createElement(s), fjs = d.getElementsByTagName(s)[0];
+        js.id = o; js.src = f; js.async = 1; fjs.parentNode.insertBefore(js, fjs);
       })(window, document, "script", "Botsonic", "https://widget.botsonic.com/CDN/botsonic.min.js");
       Botsonic("init", {
         serviceBaseUrl: "https://api-azure.botsonic.ai",
@@ -161,24 +239,30 @@
     
     <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Funzionalità per collegare il video alla chat
+        // Funzionalità per accordion e info-section
+        document.querySelectorAll('.accordion-header, .info-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const item = header.closest('.accordion-item, .info-section');
+                const content = item.querySelector('.accordion-content, .info-content');
+                item.classList.toggle('active');
+                content.style.display = content.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+
+        // Collega il video alla chat
         const assistantContainer = document.getElementById('video-assistant-container');
         setTimeout(() => {
             const chatbotLauncher = document.getElementById('botsonic-launcher-button');
             if (assistantContainer && chatbotLauncher) {
-                assistantContainer.addEventListener('click', () => {
-                    chatbotLauncher.click();
-                });
+                assistantContainer.addEventListener('click', () => chatbotLauncher.click());
             }
         }, 2000);
 
-        // Script robusto per l'avvio del video
+        // Avvio robusto del video
         const videoPlayer = document.getElementById('assistant-video');
         if (videoPlayer) {
-            videoPlayer.addEventListener('canplaythrough', () => {
-                videoPlayer.play().catch(error => {
-                    console.error("Autoplay bloccato dal browser:", error);
-                });
+            videoPlayer.play().catch(error => {
+                console.log("Autoplay bloccato, l'utente dovrà interagire per avviarlo.", error);
             });
         }
     });
