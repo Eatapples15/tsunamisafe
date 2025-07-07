@@ -36,9 +36,9 @@
             padding: 1.5rem 0;
             text-align: center;
             box-shadow: var(--shadow);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
             justify-content: center;
         }
 
@@ -74,12 +74,6 @@
             margin-bottom: 2rem;
             border-radius: 8px;
             box-shadow: var(--shadow);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
         }
 
         h2 {
@@ -134,21 +128,17 @@
             padding: 0.8rem 1.2rem;
             border-left: 5px solid var(--accent-color);
             border-radius: 4px;
-            transition: background-color 0.2s ease;
         }
 
-        ul li:hover {
-            background-color: #e9ecef;
-        }
-
-        .accordion .accordion-item {
+        .accordion .accordion-item, .info-section {
             margin-bottom: 1rem;
             border: 1px solid var(--border-color);
             border-radius: 8px;
             overflow: hidden;
+            background-color: var(--white);
         }
 
-        .accordion .accordion-header {
+        .accordion .accordion-header, .info-section .info-header {
             background-color: var(--secondary-color);
             color: var(--white);
             padding: 1rem 1.5rem;
@@ -157,83 +147,16 @@
             justify-content: space-between;
             align-items: center;
             font-weight: bold;
-            font-size: 1.1rem;
-            transition: background-color 0.3s ease;
         }
 
-        .accordion .accordion-header:hover {
-            background-color: var(--primary-color);
-        }
-
-        .accordion .accordion-header span {
-            font-size: 1.5rem;
-            transition: transform 0.3s ease;
-        }
-
-        .accordion .accordion-content {
+        .accordion .accordion-content, .info-section .info-content {
             padding: 1.5rem;
-            background-color: var(--white);
             border-top: 1px solid var(--border-color);
             display: none;
         }
-
-        .accordion-item.active .accordion-content {
-            display: block;
-        }
-
-        .info-section {
-            background-color: var(--white);
-            padding: 0; /* Padding gestito internamente */
-            margin-bottom: 2rem;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            overflow: hidden;
-        }
-
-        .info-section .info-header {
-            background-color: var(--primary-color);
-            color: var(--white);
-            padding: 1rem 1.5rem;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: bold;
-            font-size: 1.3rem;
-            transition: background-color 0.3s ease;
-        }
-
-        .info-section .info-header:hover {
-            background-color: var(--secondary-color);
-        }
-
-        .info-section .info-header span {
-            font-size: 1.8rem;
-            transition: transform 0.3s ease;
-        }
-
-        .info-section .info-content {
-            padding: 1.5rem 2rem;
-            background-color: var(--white);
-            border-top: 1px solid var(--border-color);
-            display: none;
-        }
-        .info-section.active .info-content {
+        
+        .accordion-item.active .accordion-content, .info-section.active .info-content {
              display: block;
-        }
-
-        .info-section.active .info-header span {
-            transform: rotate(90deg);
-        }
-
-        .info-section .question {
-            font-weight: bold;
-            color: var(--primary-color);
-            margin-top: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-        .info-section p+.question {
-            margin-top: 2rem;
         }
 
         .list-unstyled {
@@ -262,12 +185,6 @@
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        .link-list a:hover {
-            background-color: #218838;
-            transform: translateY(-2px);
         }
 
         footer {
@@ -276,16 +193,12 @@
             text-align: center;
             padding: 1.5rem 0;
             margin-top: 2rem;
-            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .video-gallery-wrapper {
             overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
             padding-bottom: 15px;
             scroll-snap-type: x mandatory;
-            scrollbar-width: thin;
-            scrollbar-color: var(--secondary-color) var(--light-bg);
         }
         .video-gallery {
             display: flex;
@@ -296,17 +209,11 @@
         .video-gallery-item {
             flex: 0 0 45%;
             min-width: 300px;
-            max-width: 450px;
             scroll-snap-align: start;
             background-color: var(--light-bg);
             border-radius: 8px;
             box-shadow: var(--shadow);
             overflow: hidden;
-            transition: transform 0.3s ease;
-            flex-shrink: 0;
-        }
-        .video-gallery-item:hover {
-            transform: translateY(-5px);
         }
         .video-gallery-item .video-title {
             padding: 0.8rem;
@@ -314,49 +221,25 @@
             color: var(--primary-color);
             background-color: var(--white);
             text-align: center;
-            font-size: 1.1rem;
         }
-
-        @media (max-width: 768px) {
-            header h1 { font-size: 2rem; }
-            .container { margin: 1rem auto; padding: 0 1rem; }
-            section { padding: 1.5rem; }
-            h2 { font-size: 1.7rem; }
-            h3 { font-size: 1.3rem; }
-            .accordion .accordion-header, .info-section .info-header { font-size: 1rem; padding: 0.8rem 1rem; }
-            .link-list { flex-direction: column; align-items: center; }
-            .video-gallery-item { flex: 0 0 90%; min-width: unset; max-width: unset; }
-            .video-gallery-wrapper { padding-bottom: 10px; }
-        }
-        @media (max-width: 480px) {
-            header h1 { font-size: 1.8rem; }
-            header p { font-size: 0.9rem; }
-            section { padding: 1rem; }
-            h2 { font-size: 1.5rem; }
-            header img { max-width: 100px; }
-        }
-
-        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
         /* --- STILI VIDEO ASSISTENTE E CHATBOT --- */
         #video-assistant-container {
             position: fixed;
-            width: 360px; /* Aumentato */
-            height: 640px; /* Aumentato in rapporto 16:9 verticale */
+            width: 360px;
+            height: 640px;
             right: 30px;
             bottom: 30px;
-            border-radius: 18px; /* Angoli arrotondati */
+            border-radius: 18px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
             z-index: 1000;
             background-color: #000;
             overflow: hidden;
-            transition: width 0.3s, height 0.3s;
         }
         #assistant-video {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Assicura che il video riempia senza distorsioni */
+            object-fit: cover;
             cursor: pointer;
             opacity: 0;
             transition: opacity 0.5s ease;
@@ -402,20 +285,16 @@
             align-items: center;
             justify-content: center;
             z-index: 1002;
-            transition: background-color 0.3s;
         }
-        #volume-button:hover {
-            background-color: rgba(0, 0, 0, 0.9);
-        }
+        
         @media (max-width: 768px) {
             #video-assistant-container {
-                width: 270px; /* 9:16 per mobile */
+                width: 270px;
                 height: 480px;
-                bottom: 20px;
-                right: 20px;
             }
         }
-        /* --- FINE STILI --- */
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
 </head>
 <body>
@@ -443,9 +322,30 @@
                 <h2>Cosa sapere sul Maremoto<span>+</span></h2>
             </div>
             <div class="info-content">
-                <p>Il maremoto, in giapponese tsunami, è costituito da una serie di onde marine prodotte dal rapido spostamento di una grande massa d’acqua...</p>
+                <p>Il maremoto, in giapponese tsunami, è costituito da una serie di onde marine prodotte dal rapido spostamento di una grande massa d’acqua.</p>
+                <p>In mare aperto le onde si propagano molto velocemente percorrendo grandi distanze, con altezze quasi impercettibili, ma con lunghezze d’onda (distanza tra un’onda e la successiva) che possono raggiungere alcune decine di chilometri.</p>
+                <p>Avvicinandosi alla costa, la velocità dell’onda diminuisce mentre la sua altezza aumenta rapidamente, anche di decine di metri. La prima onda può non essere la più grande e tra l’arrivo di un’onda e la successiva possono passare diversi minuti.</p>
                 <p class="question">Quali sono le cause?</p>
-                <p>Le cause principali sono i forti terremoti con epicentro in mare o vicino alla costa...</p>
+                <p>Le cause principali sono i forti terremoti con epicentro in mare o vicino alla costa. I maremoti possono essere generati anche da frane sottomarine o costiere, da attività vulcanica in mare o vicina alla costa e, molto più raramente, da meteoriti che cadono in mare.</p>
+                <p class="question">L'Italia è a rischio maremoto?</p>
+                <p>Sì, tutte le coste del Mediterraneo sono a rischio maremoto. Bisogna inoltre considerare che le coste italiane possono essere raggiunte anche da maremoti generati in aree del Mediterraneo lontane dal nostro Paese.</p>
+                <p class="question">Che cosa succede sulle coste?</p>
+                <p>Il maremoto si manifesta come un rapido innalzamento del livello del mare o come un vero e proprio muro d’acqua che si abbatte sulle coste, causando un’inondazione. A volte si osserva un iniziale e improvviso ritiro del mare.</p>
+                <p>Le onde di maremoto hanno molta più forza rispetto alle mareggiate e sono in grado di spingersi nell’entroterra anche per centinaia di metri – addirittura chilometri, se la costa è molto bassa – trascinando tutto ciò che trovano lungo il percorso.</p>
+                <p class="question">Quando avverrà?</p>
+                <p>Non è possibile saperlo: può verificarsi in qualsiasi momento. Sui maremoti sappiamo molte cose, ma nessuno è in grado di prevedere quando e dove si verificheranno.</p>
+                <p class="question">In Italia esiste un sistema di allertamento?</p>
+                <p>Sì, esiste il Sistema di Allertamento nazionale per i Maremoti generati da terremoto nel Mar Mediterraneo (SiAM).</p>
+                <p>Al sistema collaborano l’Istituto Nazionale di Geofisica e Vulcanologia, che opera attraverso il Centro Allerta Tsunami, l’Istituto Superiore per la Protezione e la Ricerca Ambientale e il Dipartimento della Protezione Civile.</p>
+                <p>Il SiAM fa parte del sistema di allertamento internazionale sul modello di quelli attivi nel Mar dei Caraibi e negli Oceani Pacifico e Indiano, con una differenza sostanziale: in un mare poco ampio come il Mediterraneo, i tempi di arrivo delle onde sono molto brevi e la possibilità di allertare la popolazione ridotta. È quindi importante conoscere bene i comportamenti da adottare in caso di emergenza.</p>
+                <h3>Cosa sapere fin da subito</h3>
+                <p>In un mare poco ampio come il Mediterraneo i tempi di arrivo delle onde sono molto brevi. Le autorità potrebbero non avere il tempo per diramare un’allerta.</p>
+                <p>Quindi è ancora più importante imparare a riconoscere i fenomeni che possono segnalare l’arrivo di un maremoto:</p>
+                <ul class="list-unstyled">
+                    <li>- un forte terremoto che hai percepito o di cui hai avuto notizia;</li>
+                    <li>- un rumore cupo e crescente che proviene dal mare, come quello di un treno o di un aereo a bassa quota;</li>
+                    <li>- un improvviso e insolito ritiro del mare, un rapido innalzamento del livello del mare o una grande onda estesa su tutto l’orizzonte.</li>
+                </ul>
             </div>
         </section>
 
@@ -453,7 +353,6 @@
 
         <section>
             <h2>Galleria Video Informativi</h2>
-            <p>Esplora altri video utili per approfondire la tua conoscenza sul rischio maremoto e le misure di sicurezza.</p>
             <div class="video-gallery-wrapper">
                 <div class="video-gallery">
                     <div class="video-gallery-item">
@@ -472,11 +371,9 @@
             <h2>Guida: Cosa Fare in Caso di Maremoto</h2>
             <p>La tua sicurezza è la nostra priorità.</p>
             <div class="accordion-item">
-                <div class="accordion-header">
-                    <h3>Fin da subito<span>+</span></h3>
-                </div>
+                <div class="accordion-header"><h3>Fin da subito<span>+</span></h3></div>
                 <div class="accordion-content">
-                    <h4>Se vivi, lavori o soggiorni in una zona a rischio...</h4>
+                    <h4>Se vivi, lavori o soggiorni in una zona a rischio maremoto:</h4>
                     <ul>
                         <li><strong>Informati</strong> sul Piano di protezione civile del Comune...</li>
                     </ul>
@@ -586,5 +483,5 @@
         });
     });
     </script>
-    </body>
+</body>
 </html>
