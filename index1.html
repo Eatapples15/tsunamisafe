@@ -8,11 +8,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #0056b3; /* Blu scuro */
-            --secondary-color: #007bff; /* Blu più chiaro */
-            --accent-color: #28a745; /* Verde per enfasi */
+            --primary-color: #0056b3;
+            --secondary-color: #007bff;
+            --accent-color: #28a745;
             --text-color: #333;
-            --light-bg: #f8f9fa; /* Sfondo chiaro */
+            --light-bg: #f8f9fa;
             --white: #ffffff;
             --border-color: #dee2e6;
             --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -149,26 +149,26 @@
         /* --- MODIFICHE STILI ASSISTENTE E CHATBOT --- */
         #video-assistant-container {
             position: fixed;
-            width: 320px; /* Aumentato */
-            height: 320px; /* Aumentato */
-            right: 30px;
-            bottom: 30px;
-            border-radius: 50%;
+            width: 400px; /* Larghezza rettangolare */
+            height: 225px; /* Altezza in rapporto 16:9 */
+            right: 25px;
+            bottom: 25px;
+            border-radius: 12px; /* Angoli arrotondati */
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
             z-index: 1000;
-            background-color: #000; /* Sfondo nero per il contenitore */
+            background-color: #000;
             overflow: hidden;
         }
         #assistant-video {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Assicura che il video copra il cerchio senza deformarsi */
+            object-fit: cover;
             cursor: pointer;
-            opacity: 0; /* Nascosto all'inizio */
+            opacity: 0;
             transition: opacity 0.5s ease;
         }
         #assistant-video.video-active {
-            opacity: 1; /* Visibile dopo il play */
+            opacity: 1;
         }
         #botsonic-launcher-button {
             display: none !important;
@@ -188,32 +188,33 @@
             transition: opacity 0.5s ease;
         }
         #play-overlay-icon {
-            font-size: 80px;
+            font-size: 70px; /* Leggermente più piccolo */
             color: rgba(255, 255, 255, 0.8);
             text-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
         }
         #volume-button {
             position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 45px;
-            height: 45px;
+            bottom: 10px; /* Posizionato in angolo */
+            right: 10px; /* Posizionato in angolo */
+            width: 40px;
+            height: 40px;
             background-color: rgba(0, 0, 0, 0.6);
             color: white;
             border: none;
             border-radius: 50%;
-            font-size: 22px;
+            font-size: 20px;
             cursor: pointer;
-            display: none; /* Nascosto all'inizio */
+            display: none;
             align-items: center;
             justify-content: center;
             z-index: 1002;
         }
         @media (max-width: 768px) {
             #video-assistant-container {
-                width: 220px;
-                height: 220px;
+                width: 280px; /* Ridotto per mobile */
+                height: 157.5px; /* Ridotto per mobile (16:9) */
+                bottom: 20px;
+                right: 20px;
             }
         }
         /* --- FINE MODIFICHE STILI --- */
@@ -244,8 +245,7 @@
 
         <section class="info-section">
             <div class="info-header">
-                <h2>Cosa sapere sul Maremoto</h2>
-                <span>+</span>
+                <h2>Cosa sapere sul Maremoto<span>+</span></h2>
             </div>
             <div class="info-content">
                 <p>Il maremoto, in giapponese tsunami, è costituito da una serie di onde marine prodotte dal rapido spostamento di una grande massa d’acqua...</p>
@@ -267,12 +267,6 @@
                         </div>
                         <div class="video-title">Allerta Maremoto: Cosa Fare</div>
                     </div>
-                    <div class="video-gallery-item">
-                        <div class="video-container">
-                             <iframe width="560" height="315" src="https://www.youtube.com/embed/ZNkiU42glf8?si=5-c64QdHcxFfY2Pb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                        </div>
-                        <div class="video-title">La Prevenzione è Fondamentale</div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -284,33 +278,12 @@
             <p>La tua sicurezza è la nostra priorità.</p>
             <div class="accordion-item">
                 <div class="accordion-header">
-                    <h3>Fin da subito</h3>
-                    <span>+</span>
+                    <h3>Fin da subito<span>+</span></h3>
                 </div>
                 <div class="accordion-content">
                     <h4>Se vivi, lavori o soggiorni in una zona a rischio...</h4>
                     <ul>
                         <li><strong>Informati</strong> sul Piano di protezione civile del Comune...</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <div class="accordion-header">
-                    <h3>Durante il maremoto</h3>
-                    <span>+</span>
-                </div>
-                <div class="accordion-content">
-                    <h4>Se sei in spiaggia o in una zona costiera...</h4>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <div class="accordion-header">
-                    <h3>Dopo il maremoto</h3>
-                    <span>+</span>
-                </div>
-                <div class="accordion-content">
-                    <ul>
-                        <li>Rimani nell’area che hai raggiunto...</li>
                     </ul>
                 </div>
             </div>
@@ -323,9 +296,6 @@
             <p style="text-align: center;">Per maggiori informazioni e aggiornamenti, consulta i seguenti siti:</p>
             <div class="link-list">
                 <a href="https://www.protezionecivile.basilicata.it/" target="_blank">Protezione Civile Regione Basilicata</a>
-                <a href="https://www.protezionecivile.gov.it/" target="_blank">Dipartimento della Protezione Civile Nazionale</a>
-                <a href="https://www.ingv.it/" target="_blank">Istituto Nazionale di Geofisica e Vulcanologia (INGV)</a>
-                <a href="https://studio--tsunamisafe.us-central1.hosted.app/" target="_blank">TSUNAMI SAFE APP</a>
                 <a href="https://eatapples15.github.io/tsunamisafe/operatori.html" target="_blank">TSUNAMI SAFE APP</a>
             </div>
         </section>
@@ -341,7 +311,8 @@
         <div id="play-overlay">
             <div id="play-overlay-icon">▶️</div>
         </div>
-        <video id="assistant-video"> <source src="https://res.cloudinary.com/dq8ooponi/video/upload/v1751877697/assistente_compresso_2_kq1o2w.mp4" type="video/mp4">
+        <video id="assistant-video">
+            <source src="https://res.cloudinary.com/dq8ooponi/video/upload/v1751877697/assistente_compresso_2_kq1o2w.mp4" type="video/mp4">
             Il video non è stato trovato.
         </video>
         <button id="volume-button">🔊</button>
@@ -380,21 +351,21 @@
             });
         });
 
-        // --- NUOVA LOGICA PER VIDEO ON-DEMAND ---
+        // --- LOGICA PER VIDEO ON-DEMAND ---
         const videoPlayer = document.getElementById('assistant-video');
         const playOverlay = document.getElementById('play-overlay');
         const volumeButton = document.getElementById('volume-button');
         
         // 1. Quando si clicca sull'overlay "Play"
         playOverlay.addEventListener('click', () => {
-            videoPlayer.muted = false; // Attiva l'audio
-            videoPlayer.loop = false;  // Disattiva il loop
-            videoPlayer.play();      // Avvia il video
+            videoPlayer.muted = false;
+            videoPlayer.loop = false;
+            videoPlayer.play();
             
-            videoPlayer.classList.add('video-active'); // Mostra il video
-            playOverlay.style.opacity = '0'; // Fa sparire l'overlay
-            playOverlay.style.pointerEvents = 'none'; // Disabilita i click futuri sull'overlay
-            volumeButton.style.display = 'flex'; // Mostra il pulsante del volume
+            videoPlayer.classList.add('video-active');
+            playOverlay.style.opacity = '0';
+            playOverlay.style.pointerEvents = 'none';
+            volumeButton.style.display = 'flex';
         });
 
         // 2. Il video ora apre la chat
@@ -405,7 +376,7 @@
         
         // 3. Il pulsante del volume controlla l'audio
         volumeButton.addEventListener('click', (event) => {
-            event.stopPropagation(); // Impedisce che il click apra anche la chat
+            event.stopPropagation();
             videoPlayer.muted = !videoPlayer.muted;
             volumeButton.innerHTML = videoPlayer.muted ? '🔇' : '🔊';
         });
@@ -416,7 +387,7 @@
             playOverlay.style.pointerEvents = 'auto';
             volumeButton.style.display = 'none';
             videoPlayer.classList.remove('video-active');
-            videoPlayer.currentTime = 0; // Riporta il video all'inizio
+            videoPlayer.currentTime = 0;
         });
     });
     </script>
